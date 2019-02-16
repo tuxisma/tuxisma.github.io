@@ -35,6 +35,17 @@ I am really excited because my lady is here, yeah my laptop baptized as “Missa
     </item>
     
     <item>
+      <title>About me</title>
+      <link>https://tuxisma.github.io/about/</link>
+      <pubDate>Wed, 27 Dec 2017 13:49:30 CST</pubDate>
+      
+      <guid>https://tuxisma.github.io/about/</guid>
+      <description>My name is Ismael Garcia I&#39;m from Chiapas, Mexico I really enjoy spend time manipulating servers especially using the adorable GNU/Linux as Operating System.
+  Currently I&amp;rsquo;m working at Custom Broker Association as a System Administrator of course using GNU/Linux I really fall in love with Cloud Computing I was part of Tlacuaches Project which envolve enthusiast of the Cloud Computing.
+My another Blog written in Spanish, feel free to go there Ismael Garcia&amp;rsquo;s Blog</description>
+    </item>
+    
+    <item>
       <title>Contact</title>
       <link>https://tuxisma.github.io/contact/</link>
       <pubDate>Sun, 09 Nov 2014 13:49:44 &#43;0400</pubDate>
@@ -50,15 +61,6 @@ I am really excited because my lady is here, yeah my laptop baptized as “Missa
       
       <guid>https://tuxisma.github.io/search/</guid>
       <description>      $(document).ready(function() { $(&#39;#tipue_search_input&#39;).tipuesearch({ &#39;mode&#39; : &#39;json&#39;, &#39;show&#39;: 10, &#39;newWindow&#39;: true, &#39;wholeWords&#39;: false }); });     </description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://tuxisma.github.io/about/</link>
-      <pubDate>Sat, 08 Nov 2014 16:42:18 &#43;0400</pubDate>
-      
-      <guid>https://tuxisma.github.io/about/</guid>
-      <description>Few words about project.</description>
     </item>
     
   </channel>
