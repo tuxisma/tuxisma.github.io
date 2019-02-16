@@ -12,11 +12,20 @@
     
     
     <item>
-      <title>Blog</title>
-      <link>https://tuxisma.github.io/tags/blog/</link>
+      <title>Cloudcomputing</title>
+      <link>https://tuxisma.github.io/tags/cloudcomputing/</link>
       <pubDate>Thu, 11 Jan 2018 17:04:45 -0600</pubDate>
       
-      <guid>https://tuxisma.github.io/tags/blog/</guid>
+      <guid>https://tuxisma.github.io/tags/cloudcomputing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mystuff</title>
+      <link>https://tuxisma.github.io/tags/mystuff/</link>
+      <pubDate>Mon, 08 Jan 2018 17:04:45 -0600</pubDate>
+      
+      <guid>https://tuxisma.github.io/tags/mystuff/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mystuff on Ismael Garcia&#39;s blog</title>
+    <link>https://tuxisma.github.io/tags/mystuff/</link>
+    <description>Recent content in Mystuff on Ismael Garcia&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Jan 2018 17:04:45 -0600</lastBuildDate>
+    
+	<atom:link href="https://tuxisma.github.io/tags/mystuff/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Missandei is here</title>
+      <link>https://tuxisma.github.io/post/missandei-is-here/</link>
+      <pubDate>Mon, 08 Jan 2018 17:04:45 -0600</pubDate>
+      
+      <guid>https://tuxisma.github.io/post/missandei-is-here/</guid>
+      <description>Jan 5, 2018 by Ismael Garcia
+I am really excited because my lady is here, yeah my laptop baptized as “Missandei” I was looking forward to get my precious, well let me tell you her features and what OS I have installed:
+ Memory 12 GiB
+ Processor Intel Core i7-350M CPU @2.90GHz x 4
+ OS Type 64-bit CentOS 7
+ Graphics Intel lvybridge Mobile i
+ GNOME</description>
+    </item>
+    
+    <item>
+      <title>Welcome to Ismael Garcia&#39;s Blog</title>
+      <link>https://tuxisma.github.io/post/welcome/</link>
+      <pubDate>Wed, 27 Dec 2017 14:05:55 -0600</pubDate>
+      
+      <guid>https://tuxisma.github.io/post/welcome/</guid>
+      <description>Hello there! I&amp;rsquo;m starting almost a new year and I decided to post some articles here in github so the idea is include content about Cloud Computing and some things about my SysAdmin life also I wanna post some articles about one of my favorite hobbies (Hiking). And another hand I wanna say thank you for all the good and bad things that come to me this year, especially starting a new year thinking different, I wanna say thank you to my Sensei Francisco Moctezuma for support me and teach me a bunch of stuff about Cloud Computing.</description>
+    </item>
+    
+  </channel>
+</rss>
