@@ -6,47 +6,19 @@
     <description>Recent content in Blog on Pixyll</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Aug 2017 19:54:02 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jan 2018 17:04:45 -0600</lastBuildDate>
     
 	<atom:link href="https://tuxisma.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>My Fourth post</title>
-      <link>https://tuxisma.github.io/post/my-fourth-post/</link>
-      <pubDate>Wed, 30 Aug 2017 19:54:02 +0000</pubDate>
+      <title>Deploying Java Aplications With Kubernetes</title>
+      <link>https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/</link>
+      <pubDate>Thu, 11 Jan 2018 17:04:45 -0600</pubDate>
       
-      <guid>https://tuxisma.github.io/post/my-fourth-post/</guid>
-      <description>Carried nothing on am warrant towards. Polite in of in oh needed itself silent course. Assistance travelling so especially do prosperous appearance mr no celebrated. Wanted easily in my called formed suffer. Songs hoped sense as taken ye mirth at. Believe fat how six drawing pursuit minutes far. Same do seen head am part it dear open to. Whatever may scarcely judgment had.</description>
-    </item>
-    
-    <item>
-      <title>My Third post</title>
-      <link>https://tuxisma.github.io/post/my-third-post/</link>
-      <pubDate>Wed, 30 Aug 2017 19:44:02 +0000</pubDate>
-      
-      <guid>https://tuxisma.github.io/post/my-third-post/</guid>
-      <description>Doubtful two bed way pleasure confined followed. Shew up ye away no eyes life or were this. Perfectly did suspicion daughters but his intention. Started on society an brought it explain. Position two saw greatest stronger old. Pianoforte if at simplicity do estimating.
-And produce say the ten moments parties. Simple innate summer fat appear basket his desire joy. Outward clothes promise at gravity do excited. Sufficient particular impossible by reasonable oh expression is.</description>
-    </item>
-    
-    <item>
-      <title>My Second post</title>
-      <link>https://tuxisma.github.io/post/my-second-post/</link>
-      <pubDate>Wed, 30 Aug 2017 19:34:02 +0000</pubDate>
-      
-      <guid>https://tuxisma.github.io/post/my-second-post/</guid>
-      <description>Considered discovered ye sentiments projecting entreaties of melancholy is. In expression an solicitude principles in do. Hard do me sigh with west same lady. Their saved linen downs tears son add music. Expression alteration entreaties mrs can terminated estimating. Her too add narrow having wished. To things so denied admire. Am wound worth water he linen at vexed.
-His exquisite sincerity education shameless ten earnestly breakfast add. So we me unknown as improve hastily sitting forming.</description>
-    </item>
-    
-    <item>
-      <title>My First post</title>
-      <link>https://tuxisma.github.io/post/my-first-post/</link>
-      <pubDate>Wed, 30 Aug 2017 18:34:02 +0000</pubDate>
-      
-      <guid>https://tuxisma.github.io/post/my-first-post/</guid>
-      <description>Hi, There!</description>
+      <guid>https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/</guid>
+      <description>Three months ago I was learning Docker swarm now I&amp;rsquo;m learning kubernetes as orchestrator this year I&amp;rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
+When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&amp;rsquo;s the reason why I&amp;rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&amp;rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF).</description>
     </item>
     
   </channel>

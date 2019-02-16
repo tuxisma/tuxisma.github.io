@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Deploying Java Aplications With Kubernetes - Pixyll</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="https://tuxisma.github.io/css/combined-min.css">
+  <link rel="stylesheet" type="text/css" href="https://tuxisma.github.io/tipuesearch/tipuesearch.css">
+
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://tuxisma.github.io" class="site-title">Pixyll</a>
+      <nav class="site-nav right">
+      <a href="https://tuxisma.github.io/about/">About</a>
+<a href="https://tuxisma.github.io/tags/">Tags</a>
+<a href="https://tuxisma.github.io/contact/">Contact</a><a href="../../ru">ru</a>
+<form class="navbar-search" action="https://tuxisma.github.io/search/index.html"
+    onsubmit="return validateForm(this.elements['q'].value);">
+    <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input">
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">Deploying Java Aplications With Kubernetes</h1>
+        <span class="post-meta">Jan 11, 2018 by Ismael Garcia</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<p>Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.</p>
+
+<p>When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the <a href="https://www.cncf.io/" target="_blank">Cloud Native Computing Foundation(CNCF)</a>.</p>
+
+<h3 id="let-s-see-the-architecture-of-the-docker-java-shopfront-application">Let&rsquo;s see the architecture of the &laquo;Docker Java Shopfront&raquo; application:</h3>
+
+<p><img src="https://d3ansictanv2wj.cloudfront.net/fig_1-f5792a21c68293bc220dbfe5244a0829.png" alt="Docker Java" title="Docker Java Shopfront" /></p>
+
+<p>Now I will write some concepts which it&rsquo;s important know.</p>
+
+<ul>
+<li><strong>kubectl</strong> Kubernetes command-line tool which control the kubernetes cluster manager.</li>
+<li><strong>labels</strong> It&rsquo;s the way how we can identify pods and be selected we have the freedom of write in JSON or YAML format.</li>
+<li><strong>Pods</strong> is essentially a group of one o more containers we can say it&rsquo;s a set of one or many containers sharing the same IP, share a filesystem and network namespace. The way how k8s communicate with pods is through kubectl.</li>
+<li><strong>Services</strong> Provide load balancing, naming and discovery to isolate one microservices from another working together with Replications Controller which ensure that containers are working within pods correctly.</li>
+</ul>
+
+<p>Prerequisities:</p>
+
+<ul>
+<li><p>Docker for Mac/Windows/Linux Kubernetes will work with one of the most popular provider containers (Docker).</p></li>
+
+<li><p>Minikube It&rsquo;s a tool that run a single-node Kuebernetes test cluster via VM.</p></li>
+
+<li><p>A github account and Git - The examples(code) of this deployments are hosted in github, using git locally you can clone, fork, commit and so on.</p></li>
+
+<li><p>Docker hub account - You will need to host your images but it&rsquo;s up to you because you can use the original source.</p></li>
+
+<li><p>Java 8 or 9 SDK and Maven(mvn) - We will use Maven(in my case I didn&rsquo;t install mvn I just runned a container with Maven into a Container, you see the step next) in order to build code and dependency tool that uses Java 8.</p></li>
+</ul>
+
+<h3 id="let-s-create-a-service-for-shopfront">Let&rsquo;s create a service for shopfront</h3>
+
+<p>Clone the repository:</p>
+
+<pre><code>$ git clone git@github.com:tuxisma/oreilly-docker-java-shopping.git
+
+$ cd oreilly-docker-java-shopping/shopfront
+
+</code></pre>
+
+<p>I loaded the code of shopfront on sublime in order to look into it.</p>
+
+<p><img src="https://farm5.staticflickr.com/4678/38757522125_40ab8779e1_b.jpg" alt="alt text" title="code shopfront" />
+This code is one of them.</p>
+
+<p>Now we gonna build the application using Maven as a result of  -we will see a JAR located in the ./target directory.</p>
+
+<p>Here a trick:</p>
+
+<p>I didn&rsquo;t install Maven but I need to have mvn which means I can run it into a container, just go into <code>shopfront/</code> and mvn will take the pom.xml file.
+(Trick share it by <a href="https://github.com/yazpik" title="yazpik" target="_blank">yazpik</a>  )</p>
+
+<pre><code>docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
+</code></pre>
+
+<p>Now I will create a image from Dockerfile:</p>
+
+<pre><code>FROM openjdk:8-jre
+ADD target/shopfront-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8010
+ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]
+</code></pre>
+
+<p>Our container image shuld be created from the openjdk:8-jre, the second line adds the app to the image, the third line specify that our app will be available through port 8010 and the last line specifies the entrypoint which means the command to run when container is initialized.</p>
+
+<p>Let&rsquo;s build the image:</p>
+
+<p>tuxisma(user on dockerhub)</p>
+
+<pre><code>$ docker build -t tuxisma/djshopfront:1.0 .
+Successfully built 87b8c5aa5260
+Successfully tagged tuxisma/djshopfront:1.0
+</code></pre>
+
+<p>Non I will push the image to Docker Hub.</p>
+
+<pre><code>$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username:
+Password:
+Login Succeeded
+$
+$ docker push tuxisma/djshopfront:1.0
+The push refers to a repository [docker.io/tuxisma/djshopfront]
+9b19f75e8748: Pushed 
+...
+cf4ecb492384: Pushed 
+1.0: digest: sha256:8a6b459b0210409e67bee29d25bb512344045bd84a262ede80777edfcff3d9a0 size: 2210
+
+</code></pre>
+
+<h3 id="deploying-with-kubernetes">Deploying with Kubernetes</h3>
+
+<p>Well we have the image of shopfront in Java. Let&rsquo;s run this image called tuxisma/djshopfront:1.0 using k8s, change the &laquo;kubernetes&raquo; directory in the root of the project:</p>
+
+<p><code>$ cd ../kubernetes</code></p>
+
+<p>We see in the yaml file the version of API(v1), kind of pod , the way of how need to write a yaml file is basically <code>key: value</code> where key is <strong><em>apiVersion</em></strong> and value is <strong><em>v1</em></strong> and so on.</p>
+
+<p>Basically we have two types of structure in yaml file:</p>
+
+<ul>
+<li><p>Maps</p></li>
+
+<li><p>Lists</p></li>
+</ul>
+
+<h3 id="maps">Maps</h3>
+
+<p>Usually you can find yamls in this way:</p>
+
+<pre><code>---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shopfront
+  labels:
+    app: shopfront
+</code></pre>
+
+<p>At the first line we have a separator could be optional but if you want to define multiple structures in the same file use it. Next we have a name(known as key) then a value, pay attention now the key metadata has other two more keys(name, labels) and labels key has another key named app and its value(shopfront). Labels is used to organize and to select subsets of objects, labels are <code>key:value</code> pairs as well.</p>
+
+<p>Be careful with spaces, look onto yaml file notice that metadata key has two more keys as I mentioned both at the same level I will recommend you use two space left to right(see name and labels) &lsquo;cause both belong to metadata or if you want use one space at least, the goal is achieve the indentation as programming language tend to do. <strong><em>Please don&rsquo;t use tab</em></strong></p>
+
+<h3 id="lists">Lists</h3>
+
+<p>Yaml lists are sequence of objects:</p>
+
+<pre><code>args
+  - sleep
+  - &quot;1000&quot;
+  - message
+  - &quot;Bring back Firefly!&quot;
+</code></pre>
+
+<p>We can see any muber of items in a list which start with dash(-) idented from the parent(args).</p>
+
+<p>And obviusly members of the list can be maps:</p>
+
+<pre><code> spec:
+      containers:
+      - name: nginxhttps
+        image: tuxisma/djshopfront:1.0
+        ports:
+        - containerPort: 8010
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8010
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+</code></pre>
+
+<h3 id="let-s-put-the-shopfront-service-yaml-file-together">Let&rsquo;s put the shopfront-service.yaml file together</h3>
+
+<pre><code>---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shopfront
+  labels:
+    app: shopfront
+spec:
+  type: NodePort
+  selector:
+    app: shopfront
+  ports:
+  - protocol: TCP
+    port: 8010
+    name: http
+
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: shopfront
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: shopfront
+    spec:
+      containers:
+      - name: nginxhttps
+        image: tuxisma/djshopfront:1.0
+        ports:
+        - containerPort: 8010
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8010
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+
+</code></pre>
+
+<p>Here we are creating a service named &laquo;shopfront&raquo; that will route TCP traffic on port 8010 to pods using the label &laquo;app:shopfront&raquo;. The next structure creates a <code>ReplicationController</code> that says to k8s how many containers should run(one replica) as we have declared as part of the &laquo;spec&raquo;(specification) labelled as <code>app: shopfront</code>. It&rsquo;s important specify that the port 8010 application traffic port in our Docker container is open, also we have a livenessProbe(healthcheck) which mean that k8s check if our containerized applications is running correctly and ready to acept traffic.</p>
+
+<p>Now, we need to start minikube in order to deploy this service(shopfront).</p>
+
+<pre><code>$ minikube start --cpus 2 --memory 4096
+Starting local Kubernetes v1.7.5 cluster...
+Starting VM...
+Getting VM IP address...
+Moving files into cluster...
+Setting up certs...
+Connecting to cluster...
+Setting up kubeconfig...
+Starting cluster components...
+Kubectl is now configured to use the cluster.
+</code></pre>
+
+<p>Deploying:</p>
+
+<pre><code>$ kubectl apply -f shopfront-service.yaml
+service &quot;shopfront&quot; created
+replicationcontroller &quot;shopfront&quot; created
+</code></pre>
+
+<p>Let&rsquo;s check all the services within k8s:</p>
+
+<pre><code>$ kubectl get svc
+NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
+kubernetes   10.0.0.1     &lt;none&gt;        443/TCP          18h
+shopfront    10.0.0.216   &lt;nodes&gt;       8010:31208/TCP   12s
+</code></pre>
+
+<p>Now checking the pods:</p>
+
+<pre><code>$ kubectl get pods
+NAME              READY     STATUS              RESTARTS   AGE
+shopfront-0w1js   0/1       ContainerCreating   0          18s
+</code></pre>
+
+<p>As we can see the pod is just creating, what about now:</p>
+
+<pre><code>$ kubectl get pods
+NAME              READY     STATUS    RESTARTS   AGE
+shopfront-0w1js   1/1       Running   0          2m
+</code></pre>
+
+<p>Yeah!!!! We&rsquo;ve just created our first service onto Kubernetes.</p>
+
+<p>As you can see the name of pod is <code>shopfront-0w1js</code> Afther the dash (-) we have a key of pod.</p>
+
+<h3 id="testing">Testing</h3>
+
+<p>I will use curl in order to get data from shopfront application&rsquo;s healthcheck endpoint.</p>
+
+<pre><code>$ curl $(minikube service shopfront --url)/health
+</code></pre>
+
+<p>And &hellip;</p>
+
+<pre><code>{&quot;status&quot;:&quot;UP&quot;}
+</code></pre>
+
+<p>Everything is OK, the application is up and running.</p>
+
+<h3 id="building-the-remaining-applicactions">Building the remaining applicactions</h3>
+
+<p>We have one container uo and running let&rsquo;s build the other two supporting microservice applications:</p>
+
+<pre><code>$ cd ..
+$ cd productcatalogue/
+$ docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
+…
+$ docker build -t tuxisma/djproductcatalogue:1.0 .
+...
+$ docker push tuxisma/djproductcatalogue:1.0
+...
+$ cd ..
+$ cd stockmanager/
+$ docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
+…
+...
+$ docker build -t tuxisma/djstockmanager:1.0 .
+...
+$ docker push tuxisma/djstockmanager:1.0
+…
+</code></pre>
+
+<p>We have built all of our microservices, associated Docker images, pushed the images to Docker Hub. We gonna deploy the &laquo;productcatalogue&raquo; and &laquo;stockmanager&raquo; services to Kubernetes.</p>
+
+<h3 id="deploying-the-entire-java-applications-in-kubernetes">Deploying the entire Java applications in Kubernetes</h3>
+
+<pre><code>$ cd ..
+$ cd kubernetes/
+$ kubectl apply -f productcatalogue-service.yaml
+service &quot;productcatalogue&quot; created
+replicationcontroller &quot;productcatalogue&quot; created
+$ kubectl apply -f stockmanager-service.yaml
+service &quot;stockmanager&quot; created
+replicationcontroller &quot;stockmanager&quot; created
+$ kubectl get svc
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+kubernetes         ClusterIP   10.0.0.1       &lt;none&gt;        443/TCP          19h
+productcatalogue   NodePort    10.0.0.37      &lt;none&gt;        8020:30160/TCP   42s
+shopfront          NodePort    10.0.0.216     &lt;none&gt;        8010:30019/TCP   13m
+stockmanager       NodePort    10.0.0.149     &lt;none&gt;        8030:31089/TCP   16s
+
+$ kubectl get pods
+NAME                     READY     STATUS    RESTARTS   AGE
+productcatalogue-79qn4   1/1       Running   0          55s
+shopfront-0w1js          1/1       Running   0          13m
+stockmanager-lmgj9       1/1       Running   0          29s
+
+</code></pre>
+
+<h3 id="how-looks-the-complete-application">How looks the complete application</h3>
+
+<p>Let&rsquo;s acces to application via the shopfront servie GUI. Our application will open the service in our default browser on my way is Firefox, use the following command in minikube:</p>
+
+<pre><code>$ minikube service shopfront
+</code></pre>
+
+<p>See the magic!</p>
+
+<p><img src="https://farm5.staticflickr.com/4670/24840666857_8bd11c3cb1_b.jpg" alt="shopfront-kubernetes" title="Shopfront" /></p>
+
+<p>We&rsquo;ve deployed our microservices using Kubernetes &lt;3</p>
+
+<p>Source:</p>
+
+<ul>
+<li><p><a href="https://github.com/danielbryantuk/oreilly-docker-java-shopping" target="_blank">https://github.com/danielbryantuk/oreilly-docker-java-shopping</a></p></li>
+
+<li><p><a href="https://kubernetes.io/docs/home/" target="_blank">https://kubernetes.io/docs/home/</a></p></li>
+
+<li><p><a href="https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer" target="_blank">https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer</a></p></li>
+</ul>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="https://tuxisma.github.io/tags/blog">blog</a>
+        
+      </p>
+
+      
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="../../index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/username"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2017<br>
+            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a> &amp; <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+
