@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Create Blog With HUGO - Ismael Garcia&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+  <link rel="canonical" href="https://tuxisma.github.io/post/create-blog-with-hugo/">
+
+  
+  
+
+  
+  
+
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="https://tuxisma.github.io/css/combined-min.css">
+  <link rel="stylesheet" type="text/css" href="https://tuxisma.github.io/tipuesearch/tipuesearch.css">
+
+</head>
+<body class="">
+
+<div class="site-wrap">
+  <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="https://tuxisma.github.io" class="site-title">Ismael Garcia&#39;s blog</a>
+      <nav class="site-nav right">
+      <a href="https://tuxisma.github.io/about/">About</a>
+<a href="https://tuxisma.github.io/tags/">Tags</a>
+<a href="https://tuxisma.github.io/contact/">Contact</a>
+<form class="navbar-search" action="https://tuxisma.github.io/search/index.html"
+    onsubmit="return validateForm(this.elements['q'].value);">
+    <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input">
+
+</form>
+
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</header>
+
+  <div class="post p2 p-responsive wrap" role="main">
+    <div class="measure">
+      <div class="post-header mb2">
+        <h1 class="py2">Create Blog With HUGO</h1>
+        <span class="post-meta">Feb 16, 2019 by Ismael Garcia</span><br>
+        
+      </div>
+
+      <article class="post-content">
+      
+
+<p>Before create your blog, make sure you have these steps completed:</p>
+
+<ul>
+<li><p>You have Git 2.8 or greater. <a href="https://www.liquidweb.com/kb/install-git-ubuntu-16-04-lts/" target="_blank">How To Install Git on Ubuntu 16.04 LTS</a></p></li>
+
+<li><p>You have a GitHub account. <a href="https://github.com/" target="_blank">GitHub</a></p></li>
+
+<li><p>You have HUGO installed. <a href="https://gohugo.io/getting-started/installing/#debian-and-ubuntu" target="_blank">Install HUGO on Debian and Ubuntu</a></p></li>
+
+<li><p>Create Site or blog to publish. <a href="https://gohugo.io/getting-started/quick-start/#step-2-create-a-new-site" target="_blank">Create a new Site</a> (Add a Theme here, chose wathever you want <a href="https://themes.gohugo.io/" target="_blank">Hugo Themes</a>)</p></li>
+</ul>
+
+<h3 id="follow-these-steps-to-put-your-website-on-github">Follow these steps to put your website on GitHub</h3>
+
+<ol>
+<li>Now it&rsquo;s time to create a repository on GitHub: <code>&lt;USERNAME&gt;.github.io</code>, this is the repository will contain the fully rendered version of your Hugo website.</li>
+<li>Make your website work locally(<code>hugo server -t &lt;YOURTHEME&gt;</code>). Open your browser to <code>http://localhost:1313.</code></li>
+<li><code>git submodule add -b master git@github.com:&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public</code>. This creates a git submodule and a folder called &lsquo;public&rsquo; , perhaps you will see a warning related to the folder recently created, please ommit it. Now you can see an empty folder &lsquo;public&rsquo;.</li>
+<li>run <code>hugo</code>, once done press <code>CTRL + C</code> and the &lsquo;public&rsquo; folder will have all the content rendered</li>
+<li>Here you have a script to automate all the process, once you create a new post you can execute this script: <a href="https://github.com/tuxisma/deploy-blog/blob/master/deploy.sh" target="_blank">Script on GitHub</a></li>
+</ol>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
+        
+            
+            <a href="https://tuxisma.github.io/tags/ubuntu,%20hugo">ubuntu, hugo</a>
+        
+      </p>
+
+      
+
+    </div>
+  </div>
+</div>
+    <footer class="footer">
+      <div class="p2 wrap">
+        <div class="measure mt1 center">
+      <nav class="social-icons icons">
+<a class="fa fa-rss rss" href="../../index.xml"></a>
+
+<a class="fa fa-twitter twitter" href="https://twitter.com/tuxisma" target="_blank"></a>
+
+</nav>
+
+          <small>
+            Copyright &#169; 2019<br>
+	   
+          </small>
+        </div>
+      </div>
+    </footer>
+
+    
+    <script src="../../js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+
+</body>
+</html>
+
