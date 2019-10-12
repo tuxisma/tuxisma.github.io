@@ -23,17 +23,12 @@
   </url>
   
   <url>
-    <loc>https://tuxisma.github.io/tags/mystuff/</loc>
-    <lastmod>2019-10-12T01:31:21-04:00</lastmod>
+    <loc>https://tuxisma.github.io/post/create-blog-with-hugo/</loc>
+    <lastmod>2019-02-16T14:33:21-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://tuxisma.github.io/tags/</loc>
-    <lastmod>2019-10-12T01:31:21-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tuxisma.github.io/post/create-blog-with-hugo/</loc>
     <lastmod>2019-02-16T14:33:21-06:00</lastmod>
   </url>
   
@@ -54,6 +49,11 @@
   
   <url>
     <loc>https://tuxisma.github.io/post/missandei-is-here/</loc>
+    <lastmod>2018-01-08T17:04:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/tags/mystuff/</loc>
     <lastmod>2018-01-08T17:04:45-06:00</lastmod>
   </url>
   
