@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://tuxisma.github.io/post/hell/</loc>
+    <lastmod>2019-10-12T02:57:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/</loc>
+    <lastmod>2019-10-12T02:57:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/post/</loc>
+    <lastmod>2019-10-12T02:57:05-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/post/im-back-again/</loc>
+    <lastmod>2019-10-12T01:31:21-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/tags/mystuff/</loc>
+    <lastmod>2019-10-12T01:31:21-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/tags/</loc>
+    <lastmod>2019-10-12T01:31:21-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/post/create-blog-with-hugo/</loc>
+    <lastmod>2019-02-16T14:33:21-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/tags/ubuntu-hugo/</loc>
+    <lastmod>2019-02-16T14:33:21-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/tags/cloudcomputing/</loc>
+    <lastmod>2018-01-11T17:04:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/</loc>
+    <lastmod>2018-01-11T17:04:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/post/missandei-is-here/</loc>
+    <lastmod>2018-01-08T17:04:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/post/welcome/</loc>
+    <lastmod>2017-12-27T14:05:55-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/about/</loc>
+    <lastmod>2017-12-27T13:49:30-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/contact/</loc>
+    <lastmod>2014-11-09T13:49:44+04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/search/</loc>
+    <lastmod>2014-11-09T13:49:44+04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tuxisma.github.io/categories/</loc>
+  </url>
+  
+</urlset>
