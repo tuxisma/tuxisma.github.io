@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Ismael Garcia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Feb 2019 14:33:21 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 12 Oct 2019 01:31:21 -0400</lastBuildDate>
     
 	<atom:link href="https://tuxisma.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>I&#39;m back!</title>
+      <link>https://tuxisma.github.io/post/im-back-again/</link>
+      <pubDate>Sat, 12 Oct 2019 01:31:21 -0400</pubDate>
+      
+      <guid>https://tuxisma.github.io/post/im-back-again/</guid>
+      <description>I&amp;rsquo;m back again and I&amp;rsquo;m thinking to write some good topics here.</description>
+    </item>
     
     <item>
       <title>Create Blog With HUGO</title>

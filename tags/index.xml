@@ -6,35 +6,35 @@
     <description>Recent content in Tags on Ismael Garcia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Jan 2018 17:04:45 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 12 Oct 2019 01:31:21 -0400</lastBuildDate>
     
 	<atom:link href="https://tuxisma.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cloudcomputing</title>
-      <link>https://tuxisma.github.io/tags/cloudcomputing/</link>
-      <pubDate>Thu, 11 Jan 2018 17:04:45 -0600</pubDate>
-      
-      <guid>https://tuxisma.github.io/tags/cloudcomputing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mystuff</title>
+      <title>mystuff</title>
       <link>https://tuxisma.github.io/tags/mystuff/</link>
-      <pubDate>Mon, 08 Jan 2018 17:04:45 -0600</pubDate>
+      <pubDate>Sat, 12 Oct 2019 01:31:21 -0400</pubDate>
       
       <guid>https://tuxisma.github.io/tags/mystuff/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Ubuntu Hugo</title>
+      <title>ubuntu, hugo</title>
       <link>https://tuxisma.github.io/tags/ubuntu-hugo/</link>
       <pubDate>Sat, 16 Feb 2019 14:33:21 -0600</pubDate>
       
       <guid>https://tuxisma.github.io/tags/ubuntu-hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloudComputing</title>
+      <link>https://tuxisma.github.io/tags/cloudcomputing/</link>
+      <pubDate>Thu, 11 Jan 2018 17:04:45 -0600</pubDate>
+      
+      <guid>https://tuxisma.github.io/tags/cloudcomputing/</guid>
       <description></description>
     </item>
     

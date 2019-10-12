@@ -153,51 +153,59 @@ cf4ecb492384: Pushed
 
 <p>Well we have the image of shopfront in Java. Let&rsquo;s run this image called tuxisma/djshopfront:1.0 using k8s, change the &laquo;kubernetes&raquo; directory in the root of the project:</p>
 
-<p><code>$ cd ../kubernetes</code></p>
+<pre><code class="language-$">
 
-<p>We see in the yaml file the version of API(v1), kind of pod , the way of how need to write a yaml file is basically <code>key: value</code> where key is <strong><em>apiVersion</em></strong> and value is <strong><em>v1</em></strong> and so on.</p>
+We see in the yaml file the version of API(v1), kind of pod , the way of how need to write a yaml file is basically ```key: value``` where key is ***apiVersion*** and value is ***v1*** and so on.
 
-<p>Basically we have two types of structure in yaml file:</p>
+Basically we have two types of structure in yaml file:
 
-<ul>
-<li><p>Maps</p></li>
+* Maps
 
-<li><p>Lists</p></li>
-</ul>
+* Lists 
 
-<h3 id="maps">Maps</h3>
+### Maps
 
-<p>Usually you can find yamls in this way:</p>
+Usually you can find yamls in this way:
 
-<pre><code>---
-apiVersion: v1
+</code></pre>
+
+<hr />
+
+<p>apiVersion: v1
 kind: Service
 metadata:
   name: shopfront
   labels:
-    app: shopfront
+    app: shopfront</p>
+
+<pre><code>
+At the first line we have a separator could be optional but if you want to define multiple structures in the same file use it. Next we have a name(known as key) then a value, pay attention now the key metadata has other two more keys(name, labels) and labels key has another key named app and its value(shopfront). Labels is used to organize and to select subsets of objects, labels are ```key:value``` pairs as well.
+
+
+Be careful with spaces, look onto yaml file notice that metadata key has two more keys as I mentioned both at the same level I will recommend you use two space left to right(see name and labels) 'cause both belong to metadata or if you want use one space at least, the goal is achieve the indentation as programming language tend to do. ***Please don't use tab*** 
+
+### Lists
+
+Yaml lists are sequence of objects:
+
+
 </code></pre>
 
-<p>At the first line we have a separator could be optional but if you want to define multiple structures in the same file use it. Next we have a name(known as key) then a value, pay attention now the key metadata has other two more keys(name, labels) and labels key has another key named app and its value(shopfront). Labels is used to organize and to select subsets of objects, labels are <code>key:value</code> pairs as well.</p>
-
-<p>Be careful with spaces, look onto yaml file notice that metadata key has two more keys as I mentioned both at the same level I will recommend you use two space left to right(see name and labels) &lsquo;cause both belong to metadata or if you want use one space at least, the goal is achieve the indentation as programming language tend to do. <strong><em>Please don&rsquo;t use tab</em></strong></p>
-
-<h3 id="lists">Lists</h3>
-
-<p>Yaml lists are sequence of objects:</p>
-
-<pre><code>args
+<p>args
   - sleep
-  - &quot;1000&quot;
+  - &laquo;1000&raquo;
   - message
-  - &quot;Bring back Firefly!&quot;
+  - &laquo;Bring back Firefly!&raquo;</p>
+
+<pre><code>
+
+We can see any muber of items in a list which start with dash(-) idented from the parent(args).
+
+And obviusly members of the list can be maps:
+
 </code></pre>
 
-<p>We can see any muber of items in a list which start with dash(-) idented from the parent(args).</p>
-
-<p>And obviusly members of the list can be maps:</p>
-
-<pre><code> spec:
+<p>spec:
       containers:
       - name: nginxhttps
         image: tuxisma/djshopfront:1.0
@@ -208,13 +216,19 @@ metadata:
             path: /health
             port: 8010
           initialDelaySeconds: 30
-          timeoutSeconds: 1
+          timeoutSeconds: 1</p>
+
+<pre><code>
+
+
+### Let's put the shopfront-service.yaml file together
+
+
 </code></pre>
 
-<h3 id="let-s-put-the-shopfront-service-yaml-file-together">Let&rsquo;s put the shopfront-service.yaml file together</h3>
+<hr />
 
-<pre><code>---
-apiVersion: v1
+<p>apiVersion: v1
 kind: Service
 metadata:
   name: shopfront
@@ -227,10 +241,11 @@ spec:
   ports:
   - protocol: TCP
     port: 8010
-    name: http
+    name: http</p>
 
----
-apiVersion: v1
+<hr />
+
+<p>apiVersion: v1
 kind: ReplicationController
 metadata:
   name: shopfront
@@ -251,129 +266,152 @@ spec:
             path: /health
             port: 8010
           initialDelaySeconds: 30
-          timeoutSeconds: 1
+          timeoutSeconds: 1</p>
+
+<pre><code>
+Here we are creating a service named &quot;shopfront&quot; that will route TCP traffic on port 8010 to pods using the label &quot;app:shopfront&quot;. The next structure creates a ```ReplicationController``` that says to k8s how many containers should run(one replica) as we have declared as part of the &quot;spec&quot;(specification) labelled as ```app: shopfront```. It's important specify that the port 8010 application traffic port in our Docker container is open, also we have a livenessProbe(healthcheck) which mean that k8s check if our containerized applications is running correctly and ready to acept traffic. 
+
+
+Now, we need to start minikube in order to deploy this service(shopfront).
 
 </code></pre>
 
-<p>Here we are creating a service named &laquo;shopfront&raquo; that will route TCP traffic on port 8010 to pods using the label &laquo;app:shopfront&raquo;. The next structure creates a <code>ReplicationController</code> that says to k8s how many containers should run(one replica) as we have declared as part of the &laquo;spec&raquo;(specification) labelled as <code>app: shopfront</code>. It&rsquo;s important specify that the port 8010 application traffic port in our Docker container is open, also we have a livenessProbe(healthcheck) which mean that k8s check if our containerized applications is running correctly and ready to acept traffic.</p>
+<p>$ minikube start &ndash;cpus 2 &ndash;memory 4096
+Starting local Kubernetes v1.7.5 cluster&hellip;
+Starting VM&hellip;
+Getting VM IP address&hellip;
+Moving files into cluster&hellip;
+Setting up certs&hellip;
+Connecting to cluster&hellip;
+Setting up kubeconfig&hellip;
+Starting cluster components&hellip;
+Kubectl is now configured to use the cluster.</p>
 
-<p>Now, we need to start minikube in order to deploy this service(shopfront).</p>
+<pre><code>
+Deploying:
 
-<pre><code>$ minikube start --cpus 2 --memory 4096
-Starting local Kubernetes v1.7.5 cluster...
-Starting VM...
-Getting VM IP address...
-Moving files into cluster...
-Setting up certs...
-Connecting to cluster...
-Setting up kubeconfig...
-Starting cluster components...
-Kubectl is now configured to use the cluster.
 </code></pre>
 
-<p>Deploying:</p>
+<p>$ kubectl apply -f shopfront-service.yaml
+service &laquo;shopfront&raquo; created
+replicationcontroller &laquo;shopfront&raquo; created</p>
 
-<pre><code>$ kubectl apply -f shopfront-service.yaml
-service &quot;shopfront&quot; created
-replicationcontroller &quot;shopfront&quot; created
+<pre><code>
+
+Let's check all the services within k8s:
+
 </code></pre>
 
-<p>Let&rsquo;s check all the services within k8s:</p>
-
-<pre><code>$ kubectl get svc
+<p>$ kubectl get svc
 NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
-kubernetes   10.0.0.1     &lt;none&gt;        443/TCP          18h
-shopfront    10.0.0.216   &lt;nodes&gt;       8010:31208/TCP   12s
+kubernetes   10.0.0.1     <none>        443/TCP          18h
+shopfront    10.0.0.216   <nodes>       8010:31208/TCP   12s</p>
+
+<pre><code>
+Now checking the pods:
+
 </code></pre>
 
-<p>Now checking the pods:</p>
-
-<pre><code>$ kubectl get pods
+<p>$ kubectl get pods
 NAME              READY     STATUS              RESTARTS   AGE
-shopfront-0w1js   0/1       ContainerCreating   0          18s
+shopfront-0w1js   0/1       ContainerCreating   0          18s</p>
+
+<pre><code>
+As we can see the pod is just creating, what about now:
+
 </code></pre>
 
-<p>As we can see the pod is just creating, what about now:</p>
-
-<pre><code>$ kubectl get pods
+<p>$ kubectl get pods
 NAME              READY     STATUS    RESTARTS   AGE
-shopfront-0w1js   1/1       Running   0          2m
+shopfront-0w1js   <sup>1</sup>&frasl;<sub>1</sub>       Running   0          2m</p>
+
+<pre><code>
+Yeah!!!! We've just created our first service onto Kubernetes. 
+
+As you can see the name of pod is ```shopfront-0w1js``` Afther the dash (-) we have a key of pod. 
+
+
+### Testing
+
+I will use curl in order to get data from shopfront application's healthcheck endpoint. 
+
 </code></pre>
 
-<p>Yeah!!!! We&rsquo;ve just created our first service onto Kubernetes.</p>
+<p>$ curl $(minikube service shopfront &ndash;url)/health</p>
 
-<p>As you can see the name of pod is <code>shopfront-0w1js</code> Afther the dash (-) we have a key of pod.</p>
+<pre><code>
+And ...
 
-<h3 id="testing">Testing</h3>
-
-<p>I will use curl in order to get data from shopfront application&rsquo;s healthcheck endpoint.</p>
-
-<pre><code>$ curl $(minikube service shopfront --url)/health
 </code></pre>
 
-<p>And &hellip;</p>
+<p>{&laquo;status&raquo;:&laquo;UP&raquo;}</p>
 
-<pre><code>{&quot;status&quot;:&quot;UP&quot;}
+<pre><code>
+Everything is OK, the application is up and running.
+
+### Building the remaining applicactions 
+
+We have one container uo and running let's build the other two supporting microservice applications:
+
 </code></pre>
 
-<p>Everything is OK, the application is up and running.</p>
-
-<h3 id="building-the-remaining-applicactions">Building the remaining applicactions</h3>
-
-<p>We have one container uo and running let&rsquo;s build the other two supporting microservice applications:</p>
-
-<pre><code>$ cd ..
+<p>$ cd ..
 $ cd productcatalogue/
-$ docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
+$ docker run -it &ndash;rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
 …
 $ docker build -t tuxisma/djproductcatalogue:1.0 .
-...
+&hellip;
 $ docker push tuxisma/djproductcatalogue:1.0
-...
+&hellip;
 $ cd ..
 $ cd stockmanager/
-$ docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
+$ docker run -it &ndash;rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
 …
-...
+&hellip;
 $ docker build -t tuxisma/djstockmanager:1.0 .
-...
+&hellip;
 $ docker push tuxisma/djstockmanager:1.0
-…
+…</p>
+
+<pre><code>
+
+We have built all of our microservices, associated Docker images, pushed the images to Docker Hub. We gonna deploy the &quot;productcatalogue&quot; and &quot;stockmanager&quot; services to Kubernetes.
+
+###  Deploying the entire Java applications in Kubernetes
+
 </code></pre>
 
-<p>We have built all of our microservices, associated Docker images, pushed the images to Docker Hub. We gonna deploy the &laquo;productcatalogue&raquo; and &laquo;stockmanager&raquo; services to Kubernetes.</p>
-
-<h3 id="deploying-the-entire-java-applications-in-kubernetes">Deploying the entire Java applications in Kubernetes</h3>
-
-<pre><code>$ cd ..
+<p>$ cd ..
 $ cd kubernetes/
 $ kubectl apply -f productcatalogue-service.yaml
-service &quot;productcatalogue&quot; created
-replicationcontroller &quot;productcatalogue&quot; created
+service &laquo;productcatalogue&raquo; created
+replicationcontroller &laquo;productcatalogue&raquo; created
 $ kubectl apply -f stockmanager-service.yaml
-service &quot;stockmanager&quot; created
-replicationcontroller &quot;stockmanager&quot; created
+service &laquo;stockmanager&raquo; created
+replicationcontroller &laquo;stockmanager&raquo; created
 $ kubectl get svc
 NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-kubernetes         ClusterIP   10.0.0.1       &lt;none&gt;        443/TCP          19h
-productcatalogue   NodePort    10.0.0.37      &lt;none&gt;        8020:30160/TCP   42s
-shopfront          NodePort    10.0.0.216     &lt;none&gt;        8010:30019/TCP   13m
-stockmanager       NodePort    10.0.0.149     &lt;none&gt;        8030:31089/TCP   16s
+kubernetes         ClusterIP   10.0.0.1       <none>        443/TCP          19h
+productcatalogue   NodePort    10.0.0.37      <none>        8020:30160/TCP   42s
+shopfront          NodePort    10.0.0.216     <none>        8010:30019/TCP   13m
+stockmanager       NodePort    10.0.0.149     <none>        8030:31089/TCP   16s</p>
 
-$ kubectl get pods
+<p>$ kubectl get pods
 NAME                     READY     STATUS    RESTARTS   AGE
-productcatalogue-79qn4   1/1       Running   0          55s
-shopfront-0w1js          1/1       Running   0          13m
-stockmanager-lmgj9       1/1       Running   0          29s
+productcatalogue-79qn4   <sup>1</sup>&frasl;<sub>1</sub>       Running   0          55s
+shopfront-0w1js          <sup>1</sup>&frasl;<sub>1</sub>       Running   0          13m
+stockmanager-lmgj9       <sup>1</sup>&frasl;<sub>1</sub>       Running   0          29s</p>
+
+<pre><code>
+
+### How looks the complete application
+
+Let's acces to application via the shopfront servie GUI. Our application will open the service in our default browser on my way is Firefox, use the following command in minikube:
 
 </code></pre>
 
-<h3 id="how-looks-the-complete-application">How looks the complete application</h3>
-
-<p>Let&rsquo;s acces to application via the shopfront servie GUI. Our application will open the service in our default browser on my way is Firefox, use the following command in minikube:</p>
-
-<pre><code>$ minikube service shopfront
-</code></pre>
+<p>$ minikube service shopfront
+```</p>
 
 <p>See the magic!</p>
 
