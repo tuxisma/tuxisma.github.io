@@ -1,80 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ismael Garcia&#39;s blog</title>
+      <title>Ismael Garcia&#39;s blog on Ismael Garcia&#39;s blog </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
     <link>https://tuxisma.github.io/</link>
-    <description>Recent content on Ismael Garcia&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Oct 2019 02:57:05 -0400</lastBuildDate>
-    
-	<atom:link href="https://tuxisma.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Hell</title>
-      <link>https://tuxisma.github.io/post/hell/</link>
-      <pubDate>Sat, 12 Oct 2019 02:57:05 -0400</pubDate>
-      
-      <guid>https://tuxisma.github.io/post/hell/</guid>
-      <description>Helllo</description>
-    </item>
+    <updated>Sat, 12 Oct 2019 02:57:05 EDT</updated>
     
     <item>
-      <title>I&#39;m back!</title>
-      <link>https://tuxisma.github.io/post/im-back-again/</link>
-      <pubDate>Sat, 12 Oct 2019 01:31:21 -0400</pubDate>
+      <title>Posts</title>
+      <link>https://tuxisma.github.io/post/</link>
+      <pubDate>Sat, 12 Oct 2019 02:57:05 EDT</pubDate>
       
-      <guid>https://tuxisma.github.io/post/im-back-again/</guid>
-      <description>I&amp;rsquo;m back again and I&amp;rsquo;m thinking to write some good topics here.</description>
-    </item>
-    
-    <item>
-      <title>Create Blog With HUGO</title>
-      <link>https://tuxisma.github.io/post/create-blog-with-hugo/</link>
-      <pubDate>Sat, 16 Feb 2019 14:33:21 -0600</pubDate>
-      
-      <guid>https://tuxisma.github.io/post/create-blog-with-hugo/</guid>
-      <description>Before create your blog, make sure you have these steps completed:
- You have Git 2.8 or greater. How To Install Git on Ubuntu 16.04 LTS
- You have a GitHub account. GitHub
- You have HUGO installed. Install HUGO on Debian and Ubuntu
- Create Site or blog to publish. Create a new Site (Add a Theme here, chose wathever you want Hugo Themes)
-  Follow these steps to put your website on GitHub  Now it&amp;rsquo;s time to create a repository on GitHub: &amp;lt;USERNAME&amp;gt;.</description>
-    </item>
-    
-    <item>
-      <title>Deploying Java Aplications With Kubernetes</title>
-      <link>https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/</link>
-      <pubDate>Thu, 11 Jan 2018 17:04:45 -0600</pubDate>
-      
-      <guid>https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/</guid>
-      <description>Three months ago I was learning Docker swarm now I&amp;rsquo;m learning kubernetes as orchestrator this year I&amp;rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
-When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&amp;rsquo;s the reason why I&amp;rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&amp;rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF).</description>
-    </item>
-    
-    <item>
-      <title>Missandei is here</title>
-      <link>https://tuxisma.github.io/post/missandei-is-here/</link>
-      <pubDate>Mon, 08 Jan 2018 17:04:45 -0600</pubDate>
-      
-      <guid>https://tuxisma.github.io/post/missandei-is-here/</guid>
-      <description>Jan 5, 2018 by Ismael Garcia
-I am really excited because my lady is here, yeah my laptop baptized as “Missandei” I was looking forward to get my precious, well let me tell you her features and what OS I have installed:
- Memory 12 GiB
- Processor Intel Core i7-350M CPU @2.90GHz x 4
- OS Type 64-bit CentOS 7
- Graphics Intel lvybridge Mobile i
- GNOME</description>
-    </item>
-    
-    <item>
-      <title>Welcome to Ismael Garcia&#39;s Blog</title>
-      <link>https://tuxisma.github.io/post/welcome/</link>
-      <pubDate>Wed, 27 Dec 2017 14:05:55 -0600</pubDate>
-      
-      <guid>https://tuxisma.github.io/post/welcome/</guid>
-      <description>Hello there! I&amp;rsquo;m starting almost a new year and I decided to post some articles here in github so the idea is include content about Cloud Computing and some things about my SysAdmin life also I wanna post some articles about one of my favorite hobbies (Hiking). And another hand I wanna say thank you for all the good and bad things that come to me this year, especially starting a new year thinking different, I wanna say thank you to my Sensei Francisco Moctezuma for support me and teach me a bunch of stuff about Cloud Computing.</description>
+      <guid>https://tuxisma.github.io/post/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -90,7 +30,7 @@ I am really excited because my lady is here, yeah my laptop baptized as “Missa
     <item>
       <title>Contact</title>
       <link>https://tuxisma.github.io/contact/</link>
-      <pubDate>Sun, 09 Nov 2014 13:49:44 +0400</pubDate>
+      <pubDate>Sun, 09 Nov 2014 13:49:44 &#43;0400</pubDate>
       
       <guid>https://tuxisma.github.io/contact/</guid>
       <description>   </description>
@@ -99,7 +39,7 @@ I am really excited because my lady is here, yeah my laptop baptized as “Missa
     <item>
       <title>Search</title>
       <link>https://tuxisma.github.io/search/</link>
-      <pubDate>Sun, 09 Nov 2014 13:49:44 +0400</pubDate>
+      <pubDate>Sun, 09 Nov 2014 13:49:44 &#43;0400</pubDate>
       
       <guid>https://tuxisma.github.io/search/</guid>
       <description>      $(document).ready(function() { $(&#39;#tipue_search_input&#39;).tipuesearch({ &#39;mode&#39; : &#39;json&#39;, &#39;show&#39;: 10, &#39;newWindow&#39;: true, &#39;wholeWords&#39;: false }); });     </description>
@@ -107,3 +47,4 @@ I am really excited because my lady is here, yeah my laptop baptized as “Missa
     
   </channel>
 </rss>
+
