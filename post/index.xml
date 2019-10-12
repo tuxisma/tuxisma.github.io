@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Ismael Garcia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Oct 2019 01:31:21 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 12 Oct 2019 02:57:05 -0400</lastBuildDate>
     
 	<atom:link href="https://tuxisma.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hell</title>
+      <link>https://tuxisma.github.io/post/hell/</link>
+      <pubDate>Sat, 12 Oct 2019 02:57:05 -0400</pubDate>
+      
+      <guid>https://tuxisma.github.io/post/hell/</guid>
+      <description>Helllo</description>
+    </item>
     
     <item>
       <title>I&#39;m back!</title>
