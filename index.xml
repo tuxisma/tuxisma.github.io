@@ -1,23 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ismael Garcia&#39;s blog</title>
+    <title>Welcome aboard!</title>
     <link>https://tuxisma.github.io/</link>
-    <description>Recent content on Ismael Garcia&#39;s blog</description>
+    <description>Recent content on Welcome aboard!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Oct 2019 02:57:05 -0400</lastBuildDate>
+    <copyright>copyright</copyright>
+    <lastBuildDate>Sat, 12 Oct 2019 01:31:21 -0400</lastBuildDate>
     
 	<atom:link href="https://tuxisma.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hell</title>
-      <link>https://tuxisma.github.io/post/hell/</link>
-      <pubDate>Sat, 12 Oct 2019 02:57:05 -0400</pubDate>
+      <title>Create Blog With HUGO</title>
+      <link>https://tuxisma.github.io/post/create-blog-with-hugo/</link>
+      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://tuxisma.github.io/post/hell/</guid>
-      <description>testing</description>
+      <guid>https://tuxisma.github.io/post/create-blog-with-hugo/</guid>
+      <description>Before create your blog, make sure you have these steps completed:
+ You have Git 2.8 or greater. How To Install Git on Ubuntu 16.04 LTS
+ You have a GitHub account. GitHub
+ You have HUGO installed. Install HUGO on Debian and Ubuntu
+ Create Site or blog to publish. Create a new Site (Add a Theme here, chose wathever you want Hugo Themes)
+  Follow these steps to put your website on GitHub  Now it&amp;rsquo;s time to create a repository on GitHub: &amp;lt;USERNAME&amp;gt;.</description>
     </item>
     
     <item>
@@ -27,20 +33,6 @@
       
       <guid>https://tuxisma.github.io/post/im-back-again/</guid>
       <description>I&amp;rsquo;m back again and I&amp;rsquo;m thinking to write some good topics here.</description>
-    </item>
-    
-    <item>
-      <title>Create Blog With HUGO</title>
-      <link>https://tuxisma.github.io/post/create-blog-with-hugo/</link>
-      <pubDate>Sat, 16 Feb 2019 14:33:21 -0600</pubDate>
-      
-      <guid>https://tuxisma.github.io/post/create-blog-with-hugo/</guid>
-      <description>Before create your blog, make sure you have these steps completed:
- You have Git 2.8 or greater. How To Install Git on Ubuntu 16.04 LTS
- You have a GitHub account. GitHub
- You have HUGO installed. Install HUGO on Debian and Ubuntu
- Create Site or blog to publish. Create a new Site (Add a Theme here, chose wathever you want Hugo Themes)
-  Follow these steps to put your website on GitHub  Now it&amp;rsquo;s time to create a repository on GitHub: &amp;lt;USERNAME&amp;gt;.</description>
     </item>
     
     <item>

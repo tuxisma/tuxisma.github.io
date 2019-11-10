@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html lang='en'><head>
-  <title>Deploying Java Aplications With Kubernetes - Ismael Garcia&#39;s blog</title>
-  <link rel='canonical' href='https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/' />
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1' />
-  <meta name='description' content='' />
-  <meta name='theme-color' content='black' />
-  
-
-  <meta name="generator" content="Hugo 0.58.3" />
-
-  
-
-
-
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Ismael Garcia">
+<meta name="description"
+    content="Three months ago I was learning Docker swarm now I&amp;rsquo;m learning kubernetes as orchestrator this year I&amp;rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
+When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&amp;rsquo;s the reason why I&amp;rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&amp;rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF)." />
+<meta name="keywords" content="tuxisma" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/" />
 
 
-<link rel="stylesheet" href="https://tuxisma.github.io/sass/style.min.8a1658d134a4b54730b66789206b2cf14c1b006a6de3f3fde6302f925b6e01f5.css" integrity="sha256-ihZY0TSktUcwtmeJIGss8UwbAGpt4/P95jAvkltuAfU=" media="screen">
-<link rel="stylesheet" href="https://tuxisma.github.io/syntax.min.css" integrity="" media="screen">
+<title>
+    
+    Deploying Java Aplications With Kubernetes :: Welcome aboard!  — A simple theme for Hugo
+    
+</title>
 
-  <meta property="og:title" content="Deploying Java Aplications With Kubernetes" />
-<meta property="og:description" content="Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
-When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF)." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/" />
-<meta property="article:published_time" content="2018-01-11T17:04:45-06:00" />
-<meta property="article:modified_time" content="2018-01-11T17:04:45-06:00" />
 
-  <meta itemprop="name" content="Deploying Java Aplications With Kubernetes">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.73f55a8d452be4a71b2960620b80252cf69abd84d63fe7501abf0a39b1a70a78.css">
+
+
+
+<meta itemprop="name" content="Deploying Java Aplications With Kubernetes">
 <meta itemprop="description" content="Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
 When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF).">
 
@@ -39,72 +43,89 @@ When you run containers you always gonna need a orchestrator in order to be more
 
 
 <meta itemprop="keywords" content="cloudComputing," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://tuxisma.github.io"/>
 
-</head>
-<body>
+<meta name="twitter:title" content="Deploying Java Aplications With Kubernetes"/>
+<meta name="twitter:description" content="Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
+When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF)."/>
 
-  <header style="background-image:linear-gradient(
-      rgba(0,0,0,0.4),rgba(0,0,0,0.4)
-    ),url(&#39;https://tuxisma.github.io/images/default-sidebar.jpg&#39;)">
 
-  <div class="intro">
-    <div class="logo-container">
-      <a href="../../">
-        <img src='https://tuxisma.github.io/images/edna-west.jpg' alt="Profile Hell" class="rounded-logo">
-      </a>
+
+
+<meta property="article:published_time" content="2018-01-11 17:04:45 -0600 -0600" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">cd /home/tuxisma</span>
+            <span class="logo__cursor" style=""></span>
+        
     </div>
-    <h2>Welcome, I'm John Doe</h2>
-    <h3>This is my personal website</h3>
-    <div class="menu">
-      
+</a>
 
-      
-    </div>
 
-  </div>
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://tuxisma.github.io/about">About</a></li><li><a href="https://tuxisma.github.io/post">Posts</a></li>
+    </ul>
+</nav>
 
-  <div class="socials">
-      
-  </div>
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
 
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
 </header>
 
-  <div class="content-wrapper">
-    
-    <main id="content" class="post">
 
-<h1>Deploying Java Aplications With Kubernetes</h1>
-<div class="reading-time">
-  <div class="icon">
-  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-  
-  <path d="M57.5 11C29.05 11 6 34.05 6 62.5S29.05 114 57.5 114 109 90.95 109 62.5 85.95 11 57.5 11zm0 93.032c-22.947 0-41.532-18.585-41.532-41.532 0-22.947 18.585-41.532 41.532-41.532 22.947 0 41.532 18.585 41.532 41.532 0 22.947-18.585 41.532-41.532 41.532zm12.833-21.68L52.703 69.54a2.508 2.508 0 0 1-1.018-2.015V33.427a2.5 2.5 0 0 1 2.492-2.492h6.646a2.5 2.5 0 0 1 2.492 2.492v29.426l13.871 10.092c1.122.81 1.35 2.368.54 3.49l-3.904 5.377a2.51 2.51 0 0 1-3.489.54z"/>
-  
-  </svg>
-</div>
+            <div class="content">
+                
+    <main class="post">
 
-  <span>8 minutes</span>
-</div>
+        <div class="post-info">
+            
+            </p>
+        </div>
 
-<div class="published-date">
-  <div class="icon">
-  <svg width="18px" height="18px" viewBox="0 0 115 115" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-  
-  <path d="M77.577 51.23a1.807 1.807 0 0 0-2.2.342l-27.562 27.79a1.807 1.807 0 0 1-2.2.342l-14.008-9.702a1.807 1.807 0 0 0-2.2.342l-1.952 1.968c-.287.22-.456.568-.455.936.001.37.172.716.46.934L45.637 86.77a1.807 1.807 0 0 0 2.2-.342l31.709-31.97c.287-.22.456-.567.455-.936a1.175 1.175 0 0 0-.46-.933l-1.963-1.36z"/><path d="M97.304 20H80.512c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.347.023-.685.04-1.026H34.579c-.041.34-.063.683-.064 1.026a5.986 5.986 0 0 0 1.256 4.1c.054.003.103.02.157.025a4.881 4.881 0 0 1 1.865-.025c3.05.562 4.984 3.907 4.32 7.47-.666 3.563-3.678 5.996-6.728 5.433a4.932 4.932 0 0 1-2.437-1.258c-6.018-1.378-10.445-7.795-10.445-15.745 0-.22.019-.434.025-.652a9.788 9.788 0 0 0-5.697 4.471 9.683 9.683 0 0 0-2.65 4.764L1.158 92.871c-.965 4.689 2.6 8.503 7.948 8.503h6.334v2.673c-.077 5.41 4.263 9.861 9.705 9.953h72.16c5.438-.095 9.774-4.546 9.694-9.953V29.953c.08-5.407-4.256-9.858-9.695-9.953zM10.078 96.653c-2.378 0-3.964-1.697-3.535-3.782L16.637 43.84h80.787L87.331 92.871a5.254 5.254 0 0 1-5.091 3.782H10.078zm91.535 7.394c.036 2.403-1.891 4.382-4.308 4.424h-72.16c-2.42-.04-4.352-2.018-4.32-4.424v-2.673h60.443c5.348 0 10.484-3.814 11.449-8.503l8.897-43.215v54.391z"/><path d="M34.814 33c1.243 0 2.251-1.057 2.251-2.36 0-1.305-1.008-2.362-2.25-2.362-2.04 0-4.313-3.194-4.313-7.778s2.272-7.778 4.312-7.778c1.227 0 2.536 1.163 3.386 3.084H43C41.716 11.19 38.578 8 34.814 8 29.871 8 26 13.49 26 20.5c0 7.009 3.871 12.5 8.814 12.5z"/>
-  
-  </svg>
-</div>
+        <article>
+            <h2 class="post-title"><a href="https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/">Deploying Java Aplications With Kubernetes</a></h2>
 
-  <span>January 11, 2018</span>
-</div>
+            
 
-
+            <div class="post-content">
+                
 
 <p>Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.</p>
 
-<p>When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the <a href="https://www.cncf.io/" target="_blank">Cloud Native Computing Foundation(CNCF)</a>.</p>
+<p>When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the <a href="https://www.cncf.io/">Cloud Native Computing Foundation(CNCF)</a>.</p>
 
-<h3 id="let-s-see-the-architecture-of-the-docker-java-shopfront-application">Let&rsquo;s see the architecture of the &laquo;Docker Java Shopfront&raquo; application:</h3>
+<h3 id="let-s-see-the-architecture-of-the-docker-java-shopfront-application">Let&rsquo;s see the architecture of the &ldquo;Docker Java Shopfront&rdquo; application:</h3>
 
 <p><img src="https://d3ansictanv2wj.cloudfront.net/fig_1-f5792a21c68293bc220dbfe5244a0829.png" alt="Docker Java" title="Docker Java Shopfront" /></p>
 
@@ -151,7 +172,7 @@ This code is one of them.</p>
 <p>Here a trick:</p>
 
 <p>I didn&rsquo;t install Maven but I need to have mvn which means I can run it into a container, just go into <code>shopfront/</code> and mvn will take the pom.xml file.
-(Trick share it by <a href="https://github.com/yazpik" title="yazpik" target="_blank">yazpik</a>  )</p>
+(Trick share it by <a href="https://github.com/yazpik" title="yazpik">yazpik</a>  )</p>
 
 <pre><code>docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
 </code></pre>
@@ -194,7 +215,7 @@ cf4ecb492384: Pushed
 
 <h3 id="deploying-with-kubernetes">Deploying with Kubernetes</h3>
 
-<p>Well we have the image of shopfront in Java. Let&rsquo;s run this image called tuxisma/djshopfront:1.0 using k8s, change the &laquo;kubernetes&raquo; directory in the root of the project:</p>
+<p>Well we have the image of shopfront in Java. Let&rsquo;s run this image called tuxisma/djshopfront:1.0 using k8s, change the &ldquo;kubernetes&rdquo; directory in the root of the project:</p>
 
 <pre><code class="language-$">
 
@@ -236,9 +257,9 @@ Yaml lists are sequence of objects:
 
 <p>args
   - sleep
-  - &laquo;1000&raquo;
+  - &ldquo;1000&rdquo;
   - message
-  - &laquo;Bring back Firefly!&raquo;</p>
+  - &ldquo;Bring back Firefly!&rdquo;</p>
 
 <pre><code>
 
@@ -336,8 +357,8 @@ Deploying:
 </code></pre>
 
 <p>$ kubectl apply -f shopfront-service.yaml
-service &laquo;shopfront&raquo; created
-replicationcontroller &laquo;shopfront&raquo; created</p>
+service &ldquo;shopfront&rdquo; created
+replicationcontroller &ldquo;shopfront&rdquo; created</p>
 
 <pre><code>
 
@@ -387,7 +408,7 @@ And ...
 
 </code></pre>
 
-<p>{&laquo;status&raquo;:&laquo;UP&raquo;}</p>
+<p>{&ldquo;status&rdquo;:&ldquo;UP&rdquo;}</p>
 
 <pre><code>
 Everything is OK, the application is up and running.
@@ -427,11 +448,11 @@ We have built all of our microservices, associated Docker images, pushed the ima
 <p>$ cd ..
 $ cd kubernetes/
 $ kubectl apply -f productcatalogue-service.yaml
-service &laquo;productcatalogue&raquo; created
-replicationcontroller &laquo;productcatalogue&raquo; created
+service &ldquo;productcatalogue&rdquo; created
+replicationcontroller &ldquo;productcatalogue&rdquo; created
 $ kubectl apply -f stockmanager-service.yaml
-service &laquo;stockmanager&raquo; created
-replicationcontroller &laquo;stockmanager&raquo; created
+service &ldquo;stockmanager&rdquo; created
+replicationcontroller &ldquo;stockmanager&rdquo; created
 $ kubectl get svc
 NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
 kubernetes         ClusterIP   10.0.0.1       <none>        443/TCP          19h
@@ -465,23 +486,63 @@ Let's acces to application via the shopfront servie GUI. Our application will op
 <p>Source:</p>
 
 <ul>
-<li><p><a href="https://github.com/danielbryantuk/oreilly-docker-java-shopping" target="_blank">https://github.com/danielbryantuk/oreilly-docker-java-shopping</a></p></li>
+<li><p><a href="https://github.com/danielbryantuk/oreilly-docker-java-shopping">https://github.com/danielbryantuk/oreilly-docker-java-shopping</a></p></li>
 
-<li><p><a href="https://kubernetes.io/docs/home/" target="_blank">https://kubernetes.io/docs/home/</a></p></li>
+<li><p><a href="https://kubernetes.io/docs/home/">https://kubernetes.io/docs/home/</a></p></li>
 
-<li><p><a href="https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer" target="_blank">https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer</a></p></li>
+<li><p><a href="https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer</a></p></li>
 </ul>
 
+            </div>
+        </article>
 
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://tuxisma.github.io/tags/cloudcomputing">cloudComputing</a></span>
+  				</p>
+  			</div>
+
+        
     </main>
-  </div>
-  <footer>
-    <div class="footer-wrapper">
-      <p>Made with ❤️ &mdash; Powered by <a href="https://gohugo.io/" target="_blank" rel="external">Hugo</a> and the <a href="https://github.com/bjacquemet/personal-web" target='_blank' rel="external">Personal Web</a> theme. Icons come from the great <a href="https://fontawesome.com/license" target="_blank" rel="external">Font Awesome</a> library</p>
-      <p></p>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+            <span>copyright</span>
+            <span> <a href="https://tuxisma.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
     </div>
-  </footer>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Raleway:400,400i,600" rel="stylesheet">
-  
-</body>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+
+
+
+    </body>
 </html>
