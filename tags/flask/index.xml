@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>flask on Welcome aboard!</title>
+    <link>https://tuxisma.github.io/tags/flask/</link>
+    <description>Recent content in flask on Welcome aboard!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>copyright</copyright>
+    <lastBuildDate>Sat, 25 Jul 2020 13:27:31 -0400</lastBuildDate>
+    
+	<atom:link href="https://tuxisma.github.io/tags/flask/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Support Alternative JSON/Payload</title>
+      <link>https://tuxisma.github.io/post/support-optional-json-flask-api/</link>
+      <pubDate>Sat, 25 Jul 2020 13:27:31 -0400</pubDate>
+      
+      <guid>https://tuxisma.github.io/post/support-optional-json-flask-api/</guid>
+      <description>A few days ago I was dealing with this error: The browser (or proxy) sent a request that this server could not understand.
+Flask has method called get_json() which help us to retrieve any json data from client, but sometimes get a json data is optional, in case the json is optional we need to pass a value through the get_json function.  Example:  my_data = request.get_json(silent=True)
+silent attribute will force the function to fail silently, in case the client is not sending json data , the function will return None as value.</description>
+    </item>
+    
+  </channel>
+</rss>
