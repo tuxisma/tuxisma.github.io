@@ -1,60 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Welcome aboard!</title>
-    <link>https://tuxisma.github.io/tags/</link>
-    <description>Recent content in Tags on Welcome aboard!</description>
+    <title>Tags on Hello Friend</title>
+    
+    
+    
+    <link>/tags/</link>
+    <description>Recent content in Tags on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>copyright</copyright>
-    <lastBuildDate>Sat, 25 Jul 2020 13:27:31 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jan 2018 17:04:45 -0600</lastBuildDate>
     
-	<atom:link href="https://tuxisma.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>api</title>
-      <link>https://tuxisma.github.io/tags/api/</link>
-      <pubDate>Sat, 25 Jul 2020 13:27:31 -0400</pubDate>
-      
-      <guid>https://tuxisma.github.io/tags/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>flask</title>
-      <link>https://tuxisma.github.io/tags/flask/</link>
-      <pubDate>Sat, 25 Jul 2020 13:27:31 -0400</pubDate>
-      
-      <guid>https://tuxisma.github.io/tags/flask/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://tuxisma.github.io/tags/python/</link>
-      <pubDate>Sat, 25 Jul 2020 13:27:31 -0400</pubDate>
-      
-      <guid>https://tuxisma.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mystuff</title>
-      <link>https://tuxisma.github.io/tags/mystuff/</link>
-      <pubDate>Sat, 12 Oct 2019 01:31:21 -0400</pubDate>
-      
-      <guid>https://tuxisma.github.io/tags/mystuff/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>cloudComputing</title>
-      <link>https://tuxisma.github.io/tags/cloudcomputing/</link>
+      <link>/tags/cloudcomputing/</link>
       <pubDate>Thu, 11 Jan 2018 17:04:45 -0600</pubDate>
       
-      <guid>https://tuxisma.github.io/tags/cloudcomputing/</guid>
-      <description></description>
+      <guid>/tags/cloudcomputing/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
     </item>
     
   </channel>

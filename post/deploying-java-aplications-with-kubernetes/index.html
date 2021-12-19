@@ -1,215 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="Ismael Garcia">
-<meta name="description" content="Three months ago I was learning Docker swarm now I&amp;rsquo;m learning kubernetes as orchestrator this year I&amp;rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
-When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&amp;rsquo;s the reason why I&amp;rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&amp;rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF)." />
-<meta name="keywords" content="tuxisma, cloudComputing" />
+  <head>
+    
+      <title>
+        Deploying Java Aplications With Kubernetes ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Three months ago I was learning Docker swarm now I&amp;rsquo;m learning kubernetes as orchestrator this year I&amp;rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
+When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&amp;rsquo;s the reason why I&amp;rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&amp;rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF)."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
 <meta name="robots" content="noodp" />
-<meta name="theme-color" content="" />
-<link rel="canonical" href="https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/" />
-
-
-    <title>
-        
-            Deploying Java Aplications With Kubernetes :: Welcome aboard!  — A simple theme for Hugo
-        
-    </title>
-
-
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
-    type="text/css">
-
-
-
-<link rel="stylesheet" href="/main.dede02da9537a98158079c023e83573e18127834838ef08172acce888341a797.css">
+<link rel="canonical" href="/post/deploying-java-aplications-with-kubernetes/" />
 
 
 
 
 
+<link rel="stylesheet" href="/assets/style.css" />
 
-<meta itemprop="name" content="Deploying Java Aplications With Kubernetes">
-<meta itemprop="description" content="Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
-When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF).">
-
-
-<meta itemprop="datePublished" content="2018-01-11T17:04:45-06:00" />
-<meta itemprop="dateModified" content="2018-01-11T17:04:45-06:00" />
-<meta itemprop="wordCount" content="1535">
+<link rel="stylesheet" href="/style.css" />
 
 
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
 
-<meta itemprop="keywords" content="cloudComputing," />
 
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://tuxisma.github.io"/>
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
 
+
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Deploying Java Aplications With Kubernetes"/>
 <meta name="twitter:description" content="Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
 When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF)."/>
 
 
 
+<meta property="og:title" content="Deploying Java Aplications With Kubernetes" />
+<meta property="og:description" content="Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
+When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/deploying-java-aplications-with-kubernetes/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2018-01-11T17:04:45-06:00" />
+<meta property="article:modified_time" content="2018-01-11T17:04:45-06:00" /><meta property="og:site_name" content="Hello Friend" />
 
 
 
 
-    <meta property="article:published_time" content="2018-01-11 17:04:45 -0600 -0600" />
 
 
 
-
-
-
-
-
-    </head>
-
-    <body class="dark-theme">
-        <div class="container">
-            <header class="header">
-    <span class="header__inner">
-        <a href="/" style="text-decoration: none;">
-    <div class="logo">
-        
-            <span class="logo__mark">></span>
-            <span class="logo__text">cd /home/tuxisma</span>
-            <span class="logo__cursor" style=
-                  "
-                   
-                   ">
-            </span>
-        
-    </div>
-</a>
-
-
-        <span class="header__right">
-            
-                <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://tuxisma.github.io/about">About</a></li><li><a href="https://tuxisma.github.io/post">Posts</a></li>
-    </ul>
-</nav>
-
-                <span class="menu-trigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                    </svg>
-                </span>
-            
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
 </svg>
 </span>
+    <span class="logo__text"
+      >/home/tuxisma</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
         </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
     </span>
+  </span>
 </header>
 
 
-            <div class="content">
-                
-    <main class="post">
+      <div class="content">
+        
+  
+  
 
-        <div class="post-info">
-            
-            </p>
-        </div>
+  <div class="post">
+    <h1 class="post-title">Deploying Java Aplications With Kubernetes</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2018-01-11
+        </span>
 
-        <article>
-            <h2 class="post-title"><a href="https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/">Deploying Java Aplications With Kubernetes</a></h2>
+        
+          
+        
+      
 
-            
+      
+        <span class="post-author"
+          >— Written by Ismael Garcia</span
+        >
 
-            <div class="post-content">
-                
 
-<p>Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.</p>
+      
+        <span class="post-read-time"
+          >— 8 min read</span
+        >
+      
+    </div>
 
+    
+      <span class="post-tags">
+        
+          <a href="/tags/cloudcomputing/">#cloudComputing</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>Three months ago I was learning Docker swarm now I&rsquo;m learning kubernetes as orchestrator this year I&rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.</p>
 <p>When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&rsquo;s the reason why I&rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the <a href="https://www.cncf.io/">Cloud Native Computing Foundation(CNCF)</a>.</p>
-
-<h3 id="let-s-see-the-architecture-of-the-docker-java-shopfront-application">Let&rsquo;s see the architecture of the &ldquo;Docker Java Shopfront&rdquo; application:</h3>
-
-<p><img src="https://d3ansictanv2wj.cloudfront.net/fig_1-f5792a21c68293bc220dbfe5244a0829.png" alt="Docker Java" title="Docker Java Shopfront" /></p>
-
+<h3 id="lets-see-the-architecture-of-the-docker-java-shopfront-application">Let&rsquo;s see the architecture of the &ldquo;Docker Java Shopfront&rdquo; application:</h3>
+<p><img src="https://d3ansictanv2wj.cloudfront.net/fig_1-f5792a21c68293bc220dbfe5244a0829.png" alt="Docker Java" title="Docker Java Shopfront"></p>
 <p>Now I will write some concepts which it&rsquo;s important know.</p>
-
 <ul>
 <li><strong>kubectl</strong> Kubernetes command-line tool which control the kubernetes cluster manager.</li>
 <li><strong>labels</strong> It&rsquo;s the way how we can identify pods and be selected we have the freedom of write in JSON or YAML format.</li>
 <li><strong>Pods</strong> is essentially a group of one o more containers we can say it&rsquo;s a set of one or many containers sharing the same IP, share a filesystem and network namespace. The way how k8s communicate with pods is through kubectl.</li>
 <li><strong>Services</strong> Provide load balancing, naming and discovery to isolate one microservices from another working together with Replications Controller which ensure that containers are working within pods correctly.</li>
 </ul>
-
 <p>Prerequisities:</p>
-
 <ul>
-<li><p>Docker for Mac/Windows/Linux Kubernetes will work with one of the most popular provider containers (Docker).</p></li>
-
-<li><p>Minikube It&rsquo;s a tool that run a single-node Kuebernetes test cluster via VM.</p></li>
-
-<li><p>A github account and Git - The examples(code) of this deployments are hosted in github, using git locally you can clone, fork, commit and so on.</p></li>
-
-<li><p>Docker hub account - You will need to host your images but it&rsquo;s up to you because you can use the original source.</p></li>
-
-<li><p>Java 8 or 9 SDK and Maven(mvn) - We will use Maven(in my case I didn&rsquo;t install mvn I just runned a container with Maven into a Container, you see the step next) in order to build code and dependency tool that uses Java 8.</p></li>
+<li>
+<p>Docker for Mac/Windows/Linux Kubernetes will work with one of the most popular provider containers (Docker).</p>
+</li>
+<li>
+<p>Minikube It&rsquo;s a tool that run a single-node Kuebernetes test cluster via VM.</p>
+</li>
+<li>
+<p>A github account and Git - The examples(code) of this deployments are hosted in github, using git locally you can clone, fork, commit and so on.</p>
+</li>
+<li>
+<p>Docker hub account - You will need to host your images but it&rsquo;s up to you because you can use the original source.</p>
+</li>
+<li>
+<p>Java 8 or 9 SDK and Maven(mvn) - We will use Maven(in my case I didn&rsquo;t install mvn I just runned a container with Maven into a Container, you see the step next) in order to build code and dependency tool that uses Java 8.</p>
+</li>
 </ul>
-
-<h3 id="let-s-create-a-service-for-shopfront">Let&rsquo;s create a service for shopfront</h3>
-
+<h3 id="lets-create-a-service-for-shopfront">Let&rsquo;s create a service for shopfront</h3>
 <p>Clone the repository:</p>
-
-<pre><code>$ git clone git@github.com:tuxisma/oreilly-docker-java-shopping.git
+<pre tabindex="0"><code>$ git clone git@github.com:tuxisma/oreilly-docker-java-shopping.git
 
 $ cd oreilly-docker-java-shopping/shopfront
 
-</code></pre>
-
-<p>I loaded the code of shopfront on sublime in order to look into it.</p>
-
-<p><img src="https://farm5.staticflickr.com/4678/38757522125_40ab8779e1_b.jpg" alt="alt text" title="code shopfront" />
+</code></pre><p>I loaded the code of shopfront on sublime in order to look into it.</p>
+<p><img src="https://farm5.staticflickr.com/4678/38757522125_40ab8779e1_b.jpg" alt="alt text" title="code shopfront">
 This code is one of them.</p>
-
 <p>Now we gonna build the application using Maven as a result of  -we will see a JAR located in the ./target directory.</p>
-
 <p>Here a trick:</p>
-
-<p>I didn&rsquo;t install Maven but I need to have mvn which means I can run it into a container, just go into <code>shopfront/</code> and mvn will take the pom.xml file.
+<p>I didn&rsquo;t install Maven but I need to have mvn which means I can run it into a container, just go into <code>shopfront/ </code> and mvn will take the pom.xml file.
 (Trick share it by <a href="https://github.com/yazpik" title="yazpik">yazpik</a>  )</p>
-
-<pre><code>docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
-</code></pre>
-
-<p>Now I will create a image from Dockerfile:</p>
-
-<pre><code>FROM openjdk:8-jre
+<pre tabindex="0"><code>docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
+</code></pre><p>Now I will create a image from Dockerfile:</p>
+<pre tabindex="0"><code>FROM openjdk:8-jre
 ADD target/shopfront-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8010
 ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]
-</code></pre>
-
-<p>Our container image shuld be created from the openjdk:8-jre, the second line adds the app to the image, the third line specify that our app will be available through port 8010 and the last line specifies the entrypoint which means the command to run when container is initialized.</p>
-
+</code></pre><p>Our container image shuld be created from the openjdk:8-jre, the second line adds the app to the image, the third line specify that our app will be available through port 8010 and the last line specifies the entrypoint which means the command to run when container is initialized.</p>
 <p>Let&rsquo;s build the image:</p>
-
 <p>tuxisma(user on dockerhub)</p>
-
-<pre><code>$ docker build -t tuxisma/djshopfront:1.0 .
+<pre tabindex="0"><code>$ docker build -t tuxisma/djshopfront:1.0 .
 Successfully built 87b8c5aa5260
 Successfully tagged tuxisma/djshopfront:1.0
-</code></pre>
-
-<p>Non I will push the image to Docker Hub.</p>
-
-<pre><code>$ docker login
+</code></pre><p>Non I will push the image to Docker Hub.</p>
+<pre tabindex="0"><code>$ docker login
 Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
 Username:
 Password:
@@ -222,65 +260,40 @@ The push refers to a repository [docker.io/tuxisma/djshopfront]
 cf4ecb492384: Pushed 
 1.0: digest: sha256:8a6b459b0210409e67bee29d25bb512344045bd84a262ede80777edfcff3d9a0 size: 2210
 
-</code></pre>
-
-<h3 id="deploying-with-kubernetes">Deploying with Kubernetes</h3>
-
+</code></pre><h3 id="deploying-with-kubernetes">Deploying with Kubernetes</h3>
 <p>Well we have the image of shopfront in Java. Let&rsquo;s run this image called tuxisma/djshopfront:1.0 using k8s, change the &ldquo;kubernetes&rdquo; directory in the root of the project:</p>
-
-<pre><code class="language-$">
-
-We see in the yaml file the version of API(v1), kind of pod , the way of how need to write a yaml file is basically ```key: value``` where key is ***apiVersion*** and value is ***v1*** and so on.
-
-Basically we have two types of structure in yaml file:
-
-* Maps
-
-* Lists 
-
-### Maps
-
-Usually you can find yamls in this way:
-
-</code></pre>
-
-<hr />
-
-<p>apiVersion: v1
+<p><code>$ cd ../kubernetes</code></p>
+<p>We see in the yaml file the version of API(v1), kind of pod , the way of how need to write a yaml file is basically <code>key: value</code> where key is <em><strong>apiVersion</strong></em> and value is <em><strong>v1</strong></em> and so on.</p>
+<p>Basically we have two types of structure in yaml file:</p>
+<ul>
+<li>
+<p>Maps</p>
+</li>
+<li>
+<p>Lists</p>
+</li>
+</ul>
+<h3 id="maps">Maps</h3>
+<p>Usually you can find yamls in this way:</p>
+<pre tabindex="0"><code>---
+apiVersion: v1
 kind: Service
 metadata:
   name: shopfront
   labels:
-    app: shopfront</p>
-
-<pre><code>
-At the first line we have a separator could be optional but if you want to define multiple structures in the same file use it. Next we have a name(known as key) then a value, pay attention now the key metadata has other two more keys(name, labels) and labels key has another key named app and its value(shopfront). Labels is used to organize and to select subsets of objects, labels are ```key:value``` pairs as well.
-
-
-Be careful with spaces, look onto yaml file notice that metadata key has two more keys as I mentioned both at the same level I will recommend you use two space left to right(see name and labels) 'cause both belong to metadata or if you want use one space at least, the goal is achieve the indentation as programming language tend to do. ***Please don't use tab*** 
-
-### Lists
-
-Yaml lists are sequence of objects:
-
-
-</code></pre>
-
-<p>args
+    app: shopfront
+</code></pre><p>At the first line we have a separator could be optional but if you want to define multiple structures in the same file use it. Next we have a name(known as key) then a value, pay attention now the key metadata has other two more keys(name, labels) and labels key has another key named app and its value(shopfront). Labels is used to organize and to select subsets of objects, labels are <code>key:value</code> pairs as well.</p>
+<p>Be careful with spaces, look onto yaml file notice that metadata key has two more keys as I mentioned both at the same level I will recommend you use two space left to right(see name and labels) &lsquo;cause both belong to metadata or if you want use one space at least, the goal is achieve the indentation as programming language tend to do. <em><strong>Please don&rsquo;t use tab</strong></em></p>
+<h3 id="lists">Lists</h3>
+<p>Yaml lists are sequence of objects:</p>
+<pre tabindex="0"><code>args
   - sleep
-  - &ldquo;1000&rdquo;
+  - &quot;1000&quot;
   - message
-  - &ldquo;Bring back Firefly!&rdquo;</p>
-
-<pre><code>
-
-We can see any muber of items in a list which start with dash(-) idented from the parent(args).
-
-And obviusly members of the list can be maps:
-
-</code></pre>
-
-<p>spec:
+  - &quot;Bring back Firefly!&quot;
+</code></pre><p>We can see any muber of items in a list which start with dash(-) idented from the parent(args).</p>
+<p>And obviusly members of the list can be maps:</p>
+<pre tabindex="0"><code> spec:
       containers:
       - name: nginxhttps
         image: tuxisma/djshopfront:1.0
@@ -291,19 +304,10 @@ And obviusly members of the list can be maps:
             path: /health
             port: 8010
           initialDelaySeconds: 30
-          timeoutSeconds: 1</p>
-
-<pre><code>
-
-
-### Let's put the shopfront-service.yaml file together
-
-
-</code></pre>
-
-<hr />
-
-<p>apiVersion: v1
+          timeoutSeconds: 1
+</code></pre><h3 id="lets-put-the-shopfront-serviceyaml-file-together">Let&rsquo;s put the shopfront-service.yaml file together</h3>
+<pre tabindex="0"><code>---
+apiVersion: v1
 kind: Service
 metadata:
   name: shopfront
@@ -316,11 +320,10 @@ spec:
   ports:
   - protocol: TCP
     port: 8010
-    name: http</p>
+    name: http
 
-<hr />
-
-<p>apiVersion: v1
+---
+apiVersion: v1
 kind: ReplicationController
 metadata:
   name: shopfront
@@ -341,214 +344,183 @@ spec:
             path: /health
             port: 8010
           initialDelaySeconds: 30
-          timeoutSeconds: 1</p>
+          timeoutSeconds: 1
 
-<pre><code>
-Here we are creating a service named &quot;shopfront&quot; that will route TCP traffic on port 8010 to pods using the label &quot;app:shopfront&quot;. The next structure creates a ```ReplicationController``` that says to k8s how many containers should run(one replica) as we have declared as part of the &quot;spec&quot;(specification) labelled as ```app: shopfront```. It's important specify that the port 8010 application traffic port in our Docker container is open, also we have a livenessProbe(healthcheck) which mean that k8s check if our containerized applications is running correctly and ready to acept traffic. 
-
-
-Now, we need to start minikube in order to deploy this service(shopfront).
-
-</code></pre>
-
-<p>$ minikube start &ndash;cpus 2 &ndash;memory 4096
-Starting local Kubernetes v1.7.5 cluster&hellip;
-Starting VM&hellip;
-Getting VM IP address&hellip;
-Moving files into cluster&hellip;
-Setting up certs&hellip;
-Connecting to cluster&hellip;
-Setting up kubeconfig&hellip;
-Starting cluster components&hellip;
-Kubectl is now configured to use the cluster.</p>
-
-<pre><code>
-Deploying:
-
-</code></pre>
-
-<p>$ kubectl apply -f shopfront-service.yaml
-service &ldquo;shopfront&rdquo; created
-replicationcontroller &ldquo;shopfront&rdquo; created</p>
-
-<pre><code>
-
-Let's check all the services within k8s:
-
-</code></pre>
-
-<p>$ kubectl get svc
+</code></pre><p>Here we are creating a service named &ldquo;shopfront&rdquo; that will route TCP traffic on port 8010 to pods using the label &ldquo;app:shopfront&rdquo;. The next structure creates a <code>ReplicationController</code> that says to k8s how many containers should run(one replica) as we have declared as part of the &ldquo;spec&rdquo;(specification) labelled as <code>app: shopfront</code>. It&rsquo;s important specify that the port 8010 application traffic port in our Docker container is open, also we have a livenessProbe(healthcheck) which mean that k8s check if our containerized applications is running correctly and ready to acept traffic.</p>
+<p>Now, we need to start minikube in order to deploy this service(shopfront).</p>
+<pre tabindex="0"><code>$ minikube start --cpus 2 --memory 4096
+Starting local Kubernetes v1.7.5 cluster...
+Starting VM...
+Getting VM IP address...
+Moving files into cluster...
+Setting up certs...
+Connecting to cluster...
+Setting up kubeconfig...
+Starting cluster components...
+Kubectl is now configured to use the cluster.
+</code></pre><p>Deploying:</p>
+<pre tabindex="0"><code>$ kubectl apply -f shopfront-service.yaml
+service &quot;shopfront&quot; created
+replicationcontroller &quot;shopfront&quot; created
+</code></pre><p>Let&rsquo;s check all the services within k8s:</p>
+<pre tabindex="0"><code>$ kubectl get svc
 NAME         CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
-kubernetes   10.0.0.1     <none>        443/TCP          18h
-shopfront    10.0.0.216   <nodes>       8010:31208/TCP   12s</p>
-
-<pre><code>
-Now checking the pods:
-
-</code></pre>
-
-<p>$ kubectl get pods
+kubernetes   10.0.0.1     &lt;none&gt;        443/TCP          18h
+shopfront    10.0.0.216   &lt;nodes&gt;       8010:31208/TCP   12s
+</code></pre><p>Now checking the pods:</p>
+<pre tabindex="0"><code>$ kubectl get pods
 NAME              READY     STATUS              RESTARTS   AGE
-shopfront-0w1js   0/1       ContainerCreating   0          18s</p>
-
-<pre><code>
-As we can see the pod is just creating, what about now:
-
-</code></pre>
-
-<p>$ kubectl get pods
+shopfront-0w1js   0/1       ContainerCreating   0          18s
+</code></pre><p>As we can see the pod is just creating, what about now:</p>
+<pre tabindex="0"><code>$ kubectl get pods
 NAME              READY     STATUS    RESTARTS   AGE
-shopfront-0w1js   <sup>1</sup>&frasl;<sub>1</sub>       Running   0          2m</p>
-
-<pre><code>
-Yeah!!!! We've just created our first service onto Kubernetes. 
-
-As you can see the name of pod is ```shopfront-0w1js``` Afther the dash (-) we have a key of pod. 
-
-
-### Testing
-
-I will use curl in order to get data from shopfront application's healthcheck endpoint. 
-
-</code></pre>
-
-<p>$ curl $(minikube service shopfront &ndash;url)/health</p>
-
-<pre><code>
-And ...
-
-</code></pre>
-
-<p>{&ldquo;status&rdquo;:&ldquo;UP&rdquo;}</p>
-
-<pre><code>
-Everything is OK, the application is up and running.
-
-### Building the remaining applicactions 
-
-We have one container uo and running let's build the other two supporting microservice applications:
-
-</code></pre>
-
-<p>$ cd ..
+shopfront-0w1js   1/1       Running   0          2m
+</code></pre><p>Yeah!!!! We&rsquo;ve just created our first service onto Kubernetes.</p>
+<p>As you can see the name of pod is <code>shopfront-0w1js</code> Afther the dash (-) we have a key of pod.</p>
+<h3 id="testing">Testing</h3>
+<p>I will use curl in order to get data from shopfront application&rsquo;s healthcheck endpoint.</p>
+<pre tabindex="0"><code>$ curl $(minikube service shopfront --url)/health
+</code></pre><p>And &hellip;</p>
+<pre tabindex="0"><code>{&quot;status&quot;:&quot;UP&quot;}
+</code></pre><p>Everything is OK, the application is up and running.</p>
+<h3 id="building-the-remaining-applicactions">Building the remaining applicactions</h3>
+<p>We have one container uo and running let&rsquo;s build the other two supporting microservice applications:</p>
+<pre tabindex="0"><code>$ cd ..
 $ cd productcatalogue/
-$ docker run -it &ndash;rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
+$ docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
 …
 $ docker build -t tuxisma/djproductcatalogue:1.0 .
-&hellip;
+...
 $ docker push tuxisma/djproductcatalogue:1.0
-&hellip;
+...
 $ cd ..
 $ cd stockmanager/
-$ docker run -it &ndash;rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
+$ docker run -it --rm -v $PWD:/usr/src/mymaven -w /usr/src/mymaven maven  mvn clean install
 …
-&hellip;
+...
 $ docker build -t tuxisma/djstockmanager:1.0 .
-&hellip;
+...
 $ docker push tuxisma/djstockmanager:1.0
-…</p>
-
-<pre><code>
-
-We have built all of our microservices, associated Docker images, pushed the images to Docker Hub. We gonna deploy the &quot;productcatalogue&quot; and &quot;stockmanager&quot; services to Kubernetes.
-
-###  Deploying the entire Java applications in Kubernetes
-
-</code></pre>
-
-<p>$ cd ..
+…
+</code></pre><p>We have built all of our microservices, associated Docker images, pushed the images to Docker Hub. We gonna deploy the &ldquo;productcatalogue&rdquo; and &ldquo;stockmanager&rdquo; services to Kubernetes.</p>
+<h3 id="deploying-the-entire-java-applications-in-kubernetes">Deploying the entire Java applications in Kubernetes</h3>
+<pre tabindex="0"><code>$ cd ..
 $ cd kubernetes/
 $ kubectl apply -f productcatalogue-service.yaml
-service &ldquo;productcatalogue&rdquo; created
-replicationcontroller &ldquo;productcatalogue&rdquo; created
+service &quot;productcatalogue&quot; created
+replicationcontroller &quot;productcatalogue&quot; created
 $ kubectl apply -f stockmanager-service.yaml
-service &ldquo;stockmanager&rdquo; created
-replicationcontroller &ldquo;stockmanager&rdquo; created
+service &quot;stockmanager&quot; created
+replicationcontroller &quot;stockmanager&quot; created
 $ kubectl get svc
 NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
-kubernetes         ClusterIP   10.0.0.1       <none>        443/TCP          19h
-productcatalogue   NodePort    10.0.0.37      <none>        8020:30160/TCP   42s
-shopfront          NodePort    10.0.0.216     <none>        8010:30019/TCP   13m
-stockmanager       NodePort    10.0.0.149     <none>        8030:31089/TCP   16s</p>
+kubernetes         ClusterIP   10.0.0.1       &lt;none&gt;        443/TCP          19h
+productcatalogue   NodePort    10.0.0.37      &lt;none&gt;        8020:30160/TCP   42s
+shopfront          NodePort    10.0.0.216     &lt;none&gt;        8010:30019/TCP   13m
+stockmanager       NodePort    10.0.0.149     &lt;none&gt;        8030:31089/TCP   16s
 
-<p>$ kubectl get pods
+$ kubectl get pods
 NAME                     READY     STATUS    RESTARTS   AGE
-productcatalogue-79qn4   <sup>1</sup>&frasl;<sub>1</sub>       Running   0          55s
-shopfront-0w1js          <sup>1</sup>&frasl;<sub>1</sub>       Running   0          13m
-stockmanager-lmgj9       <sup>1</sup>&frasl;<sub>1</sub>       Running   0          29s</p>
+productcatalogue-79qn4   1/1       Running   0          55s
+shopfront-0w1js          1/1       Running   0          13m
+stockmanager-lmgj9       1/1       Running   0          29s
 
-<pre><code>
-
-### How looks the complete application
-
-Let's acces to application via the shopfront servie GUI. Our application will open the service in our default browser on my way is Firefox, use the following command in minikube:
-
-</code></pre>
-
-<p>$ minikube service shopfront
-```</p>
-
-<p>See the magic!</p>
-
-<p><img src="https://farm5.staticflickr.com/4670/24840666857_8bd11c3cb1_b.jpg" alt="shopfront-kubernetes" title="Shopfront" /></p>
-
+</code></pre><h3 id="how-looks-the-complete-application">How looks the complete application</h3>
+<p>Let&rsquo;s acces to application via the shopfront servie GUI. Our application will open the service in our default browser on my way is Firefox, use the following command in minikube:</p>
+<pre tabindex="0"><code>$ minikube service shopfront
+</code></pre><p>See the magic!</p>
+<p><img src="https://farm5.staticflickr.com/4670/24840666857_8bd11c3cb1_b.jpg" alt="shopfront-kubernetes" title="Shopfront"></p>
 <p>We&rsquo;ve deployed our microservices using Kubernetes &lt;3</p>
-
 <p>Source:</p>
-
 <ul>
-<li><p><a href="https://github.com/danielbryantuk/oreilly-docker-java-shopping">https://github.com/danielbryantuk/oreilly-docker-java-shopping</a></p></li>
-
-<li><p><a href="https://kubernetes.io/docs/home/">https://kubernetes.io/docs/home/</a></p></li>
-
-<li><p><a href="https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer</a></p></li>
+<li>
+<p><a href="https://github.com/danielbryantuk/oreilly-docker-java-shopping">https://github.com/danielbryantuk/oreilly-docker-java-shopping</a></p>
+</li>
+<li>
+<p><a href="https://kubernetes.io/docs/home/">https://kubernetes.io/docs/home/</a></p>
+</li>
+<li>
+<p><a href="https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">https://www.oreilly.com/ideas/how-to-manage-docker-containers-in-kubernetes-with-java?utm_content=buffera6cd5&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer</a></p>
+</li>
 </ul>
 
-            </div>
-        </article>
-
-        <hr />
-
-        <div class="post-info">
-  				<p>
-  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://tuxisma.github.io/tags/cloudcomputing">cloudComputing</a></span>
-  				</p>
-  		</div>
-    </main>
-
-            </div>
-
-            
-                <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            
-                <span>copyright</span>
-            
-            <span> <a href="https://tuxisma.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
     </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
-        </div>
-    </div>
-</footer>
-
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
             
+              <span class="button previous">
+                <a href="/post/create-blog-with-hugo/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Create Blog With HUGO</span>
+                </a>
+              </span>
+            
+            
+          </div>
         </div>
+      
+    
 
+    
+      
         
 
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >/home/tuxisma</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
 
 
+      
+    </div>
 
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
-
-
-
-    </body>
+    
+  </body>
 </html>

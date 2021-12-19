@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>cloudComputing on Welcome aboard!</title>
-    <link>https://tuxisma.github.io/tags/cloudcomputing/</link>
-    <description>Recent content in cloudComputing on Welcome aboard!</description>
+    <title>cloudComputing on Hello Friend</title>
+    
+    
+    
+    <link>/tags/cloudcomputing/</link>
+    <description>Recent content in cloudComputing on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>copyright</copyright>
     <lastBuildDate>Thu, 11 Jan 2018 17:04:45 -0600</lastBuildDate>
     
-	<atom:link href="https://tuxisma.github.io/tags/cloudcomputing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/cloudcomputing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Deploying Java Aplications With Kubernetes</title>
-      <link>https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/</link>
+      <link>/post/deploying-java-aplications-with-kubernetes/</link>
       <pubDate>Thu, 11 Jan 2018 17:04:45 -0600</pubDate>
       
-      <guid>https://tuxisma.github.io/post/deploying-java-aplications-with-kubernetes/</guid>
-      <description>Three months ago I was learning Docker swarm now I&amp;rsquo;m learning kubernetes as orchestrator this year I&amp;rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
-When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&amp;rsquo;s the reason why I&amp;rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&amp;rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF).</description>
+      <guid>/post/deploying-java-aplications-with-kubernetes/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Three months ago I was learning Docker swarm now I&amp;rsquo;m learning kubernetes as orchestrator this year I&amp;rsquo;m gonna write about k8s a lot so the idea here is show how to deploy Java Aplications within Docker Containers orchestra them with Kubernetes.
+When you run containers you always gonna need a orchestrator in order to be more efficient, faster and continuous delivery and so on that&amp;rsquo;s the reason why I&amp;rsquo;ve chosen kubernetes and the true is basically because is the most popular I would say it&amp;rsquo;s so robust, ambicious, fault-tolerance, scaling, discovery abilities and why not use it, mainly was created at Google and now is hosted by the Cloud Native Computing Foundation(CNCF).
+          
+        
+        </description>
     </item>
     
   </channel>
