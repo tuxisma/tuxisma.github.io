@@ -9,7 +9,7 @@
     <description>Recent content in Posts on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Dec 2021 05:52:50 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -34,6 +34,27 @@
   You have HUGO installed. Install HUGO on Debian and Ubuntu
   Create Site or blog to publish. Create a new Site (Add a Theme here, chose wathever you want Hugo Themes)
   Follow these steps to put your website on GitHub  Now it&amp;rsquo;s time to create a repository on GitHub: &amp;lt;USERNAME&amp;gt;.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>The Filesystem Hierarchy Standard</title>
+      <link>/post/the-filesystem-hierarchy-standard/</link>
+      <pubDate>Tue, 28 Dec 2021 05:52:50 +0000</pubDate>
+      
+      <guid>/post/the-filesystem-hierarchy-standard/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          What is a Filesytem Current Linux Structure Directory Some advices  What is a Filesystem A filesystem is the structure of how data is organized in Linux such as boot files, binaries, user´s data, config files, libraries, temp files, etc. A partition with a filesystem is needed in order to store these kind of files.
+On Linux there may be more than one partitions on disks using different filesystems. Those filesystems can be found mounted as subdirectories in the directory tree and even can be located either locally or across the network.
           
         
         </description>
