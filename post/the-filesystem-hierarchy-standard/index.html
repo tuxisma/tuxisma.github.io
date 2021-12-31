@@ -11,8 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content="What is a Filesytem Current Linux Structure Directory Some advices  What is a Filesystem A filesystem is the structure of how data is organized in Linux such as boot files, binaries, user´s data, config files, libraries, temp files, etc. A partition with a filesystem is needed in order to store these kind of files.
-On Linux there may be more than one partitions on disks using different filesystems. Those filesystems can be found mounted as subdirectories in the directory tree and even can be located either locally or across the network."
+  content="What is a Filesytem Current Linux Structure Directory Things to consider  What is a Filesystem A filesystem is the structure of how data is organized in Linux such as boot files, binaries, user´s data, config files, libraries, temp files, etc. A partition with a filesystem is needed in order to store these kind of files.
+On Linux there may be more than one partitions on disks using different filesystems."
 />
 <meta
   name="keywords"
@@ -48,14 +48,14 @@ On Linux there may be more than one partitions on disks using different filesyst
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="The Filesystem Hierarchy Standard"/>
-<meta name="twitter:description" content="What is a Filesytem Current Linux Structure Directory Some advices  What is a Filesystem A filesystem is the structure of how data is organized in Linux such as boot files, binaries, user´s data, config files, libraries, temp files, etc. A partition with a filesystem is needed in order to store these kind of files.
-On Linux there may be more than one partitions on disks using different filesystems. Those filesystems can be found mounted as subdirectories in the directory tree and even can be located either locally or across the network."/>
+<meta name="twitter:description" content="What is a Filesytem Current Linux Structure Directory Things to consider  What is a Filesystem A filesystem is the structure of how data is organized in Linux such as boot files, binaries, user´s data, config files, libraries, temp files, etc. A partition with a filesystem is needed in order to store these kind of files.
+On Linux there may be more than one partitions on disks using different filesystems."/>
 
 
 
 <meta property="og:title" content="The Filesystem Hierarchy Standard" />
-<meta property="og:description" content="What is a Filesytem Current Linux Structure Directory Some advices  What is a Filesystem A filesystem is the structure of how data is organized in Linux such as boot files, binaries, user´s data, config files, libraries, temp files, etc. A partition with a filesystem is needed in order to store these kind of files.
-On Linux there may be more than one partitions on disks using different filesystems. Those filesystems can be found mounted as subdirectories in the directory tree and even can be located either locally or across the network." />
+<meta property="og:description" content="What is a Filesytem Current Linux Structure Directory Things to consider  What is a Filesystem A filesystem is the structure of how data is organized in Linux such as boot files, binaries, user´s data, config files, libraries, temp files, etc. A partition with a filesystem is needed in order to store these kind of files.
+On Linux there may be more than one partitions on disks using different filesystems." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/the-filesystem-hierarchy-standard/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-12-28T05:52:50+00:00" />
@@ -172,7 +172,7 @@ On Linux there may be more than one partitions on disks using different filesyst
 
       
         <span class="post-read-time"
-          >— 1 min read</span
+          >— 2 min read</span
         >
       
     </div>
@@ -186,7 +186,7 @@ On Linux there may be more than one partitions on disks using different filesyst
       <ul>
 <li>What is a Filesytem</li>
 <li>Current Linux Structure Directory</li>
-<li>Some advices</li>
+<li>Things to consider</li>
 </ul>
 <h2 id="what-is-a-filesystem">What is a Filesystem</h2>
 <p>A filesystem is the structure of how data is organized in Linux such as boot files, binaries, user´s data, config files, libraries, temp files, etc. A partition with a filesystem is needed in order to store these kind of files.</p>
@@ -200,10 +200,43 @@ On Linux there may be more than one partitions on disks using different filesyst
 <p>Programs run on a filesystem, so a partition must has a filesystem on it to operate properly.</p>
 <h2 id="current-linux-structure-directory">Current Linux Structure Directory</h2>
 <p><img src="https://raw.githubusercontent.com/tuxisma/tuxisma.github.io/master/images/fhs.jpg" alt="fhs"></p>
+<h2 id="things-to-consider">Things to consider</h2>
+<ul>
+<li>
+<p>I would recommend to understand what kind of files are stored in each filesystem and stick with that. You may find some symlinks on each Linux distribution preserving same commands for compatibily purpose such as  <em>/bin</em>, <em>/lib</em>, <em>/lib64</em>, <em>/sbin</em>.</p>
+<pre><code> /bin   ------&gt; /usr/bin
+
+ /lib   ------&gt; /usr/lib
+
+ /lib64 ----&gt; /usr/lib64
+
+ /sbin  ----&gt; /usr/sbin
+</code></pre>
+</li>
+<li>
+<p>Pseudo-filesystems such as <em>/dev</em>, <em>/proc</em>, <em>/sys</em> stores system properties in memory, which help to the system works as intended, also <em>/run</em> is a pseudo-fylesystem.</p>
+</li>
+<li>
+<p>Linux kernel modules are stored under <em>/lib</em> directory, also we can find the Pluggable Authenticaion Module (PAM) here as well.</p>
+</li>
+<li>
+<p>Files needed for the system to startup are stored in <em>/boot</em> directory , also here we can find the compressed Linux Kernel (<strong>vmlinuz</strong>) and the initial ram filesystem (<strong>initramfs</strong>)</p>
+</li>
+<li>
+<p>System log files such as service messages, web server logs are stored under <em>/var</em> directory.</p>
+</li>
+<li>
+<p>Users files are stored under <em>/home</em> directory</p>
+</li>
+<li>
+<p>All system configuration files should be stored under <em>/etc</em> directory, NO binaries should be stored here.</p>
+</li>
+</ul>
 <h5 id="sources">Sources:</h5>
 <ul>
 <li><a href="https://tldp.org/LDP/sag/html/filesystems.html">https://tldp.org/LDP/sag/html/filesystems.html</a></li>
 <li><a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf">https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</a></li>
 </ul>
 
     </div>
