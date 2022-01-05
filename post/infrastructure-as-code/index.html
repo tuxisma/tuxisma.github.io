@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Infrastructure as Code - Terraform ::
+        Ismael Garcia — DevOps tools
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="What is Infrastructure as code Why is so important What is Terraform Features of terraform Use Cases  What is Infrastructure as code Infrastructure as code (IaC) is a way of how you define the resources that you want to deploy as code. IaC helps to build, change, version your infrastructure at low-level (Compute instances, storage, networking) and high-level(DNS entries, SaaS features).
+Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI Service or maybe using the CLI, so what about if the user needs thousand of compute instances ?"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/post/infrastructure-as-code/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css" />
+
+<link rel="stylesheet" href="/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Infrastructure as Code - Terraform"/>
+<meta name="twitter:description" content="What is Infrastructure as code Why is so important What is Terraform Features of terraform Use Cases  What is Infrastructure as code Infrastructure as code (IaC) is a way of how you define the resources that you want to deploy as code. IaC helps to build, change, version your infrastructure at low-level (Compute instances, storage, networking) and high-level(DNS entries, SaaS features).
+Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI Service or maybe using the CLI, so what about if the user needs thousand of compute instances ?"/>
+
+
+
+<meta property="og:title" content="Infrastructure as Code - Terraform" />
+<meta property="og:description" content="What is Infrastructure as code Why is so important What is Terraform Features of terraform Use Cases  What is Infrastructure as code Infrastructure as code (IaC) is a way of how you define the resources that you want to deploy as code. IaC helps to build, change, version your infrastructure at low-level (Compute instances, storage, networking) and high-level(DNS entries, SaaS features).
+Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI Service or maybe using the CLI, so what about if the user needs thousand of compute instances ?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/infrastructure-as-code/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-05T03:39:05+00:00" />
+<meta property="article:modified_time" content="2022-01-05T03:39:05+00:00" /><meta property="og:site_name" content="Ismael Garcia" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >/home/tuxisma</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/archive">Archive</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/archive">Archive</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Infrastructure as Code - Terraform</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-01-05
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by Ismael Garcia</span
+        >
+
+
+      
+        <span class="post-read-time"
+          >— 5 min read</span
+        >
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <ul>
+<li>What is Infrastructure as code</li>
+<li>Why is so important</li>
+<li>What is Terraform</li>
+<li>Features of terraform</li>
+<li>Use Cases</li>
+</ul>
+<h1 id="what-is-infrastructure-as-code">What is Infrastructure as code</h1>
+<p>Infrastructure as code (IaC) is a way of how you define the resources that you want to deploy as code. IaC helps to <em>build</em>, <em>change</em>, <em>version</em> your infrastructure at low-level (Compute instances, storage, networking) and high-level(DNS entries, SaaS features).</p>
+<h1 id="why-is-so-important">Why is so important</h1>
+<p>The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI Service or maybe using the CLI, so what about if the user needs thousand of compute instances ? , well the task becomes to be tedious , we do not want to waste time provisioning those resources one by one. Here is a different question, what about if we want to scale down at nights to save cost and scale up during a peak day?</p>
+<p>Since most of the IaC providers are API driven we can automate stuffs such as schedule a script to run every morning and provision thousands of compute instances. We can codify all process, automating and also versioning, we will be able to see who changes what, who my infrastructure is actually defined at any given time and also have a transparency documentation.</p>
+<p>We can conclude then having infrastructure as a code we are ble to:</p>
+<ul>
+<li>Control Version</li>
+<li>Reusability of the code</li>
+<li>Abilty to automate on top of it</li>
+</ul>
+<h1 id="what-is-terraform">What is Terraform</h1>
+<p>Terraform was introduced in the market by Hashicorp in 2014 as IaC. Terraforn is a cloud-agnostic (AWS, Azure, GCP and others cloud platforms) tool to provision resources using a configuration file written in Hashicorp Language (HCL).</p>
+<p>The workflow of Terraform for all clouds is basically:</p>
+<ul>
+<li>terraform init</li>
+<li>terraform plan</li>
+<li>terraform apply</li>
+</ul>
+<h1 id="features-of-terraform">Features of terraform</h1>
+<h2 id="infrastructure-as-code">Infrastructure as code</h2>
+<p>You can define your resources that will be provisioned in a configuration file using HCL followig Terraform workflow.</p>
+<h2 id="execution-plans">Execution plans</h2>
+<p>You can test your deployment before apply changes. This way you will see what will be the result before fly, in case you see something odd that does not satify what you want you can update, once everything looks good you call <em>apply</em></p>
+<h2 id="resource-graph">Resource Graph</h2>
+<p>Terraform builds a graph based on resources you want to deploy, in case a non-dependent resources are found those resources will be created and modified parallelly.</p>
+<h2 id="changing-automation">Changing automation</h2>
+<p>Based on infra provisioned previously we know what terraform will change and in what order. Terraform does not need to createn again the resources from scratch, only the new ones needed, also respects the dependencies.</p>
+<h1 id="use-cases">Use Cases</h1>
+<ul>
+<li>
+<p><strong>Multi-Cloud Deployment</strong>: Terraform is cloud-agnostic and allows a single configuration to be used accross all clouds providers, so we can build large-scale multi-cloud infrastructures.</p>
+</li>
+<li>
+<p><strong>Heroku App Setup</strong>:
+A PAAS for hosting web apps. You can use terraform to provision the setup required for a Heroku app and config DNSimple to set CNAME or Cloudfare as a CDN for the app.</p>
+</li>
+<li>
+<p><strong>Multi-Tier Applications:</strong> You can group resources in each tier together, and Terraform will manages the dependencies between each tier. For example, Terraform will make sure the database is availabe before the web nodes are created and also the load balancers are connect to the web servers.</p>
+</li>
+<li>
+<p><strong>Self-Service Clusters</strong>: This is for large organization when exists a centralized operation team and they cannot handle everything because the demand it&rsquo;s pretty obvious, this allow to product teams to handle their own infrastructure using tooling provided by the centralized operation team. A terraform configuration file can be shared across within an organization, so the rest of the product teams can use it.</p>
+</li>
+<li>
+<p><strong>Software Demos</strong>: For testing sofware we can use Vagrant to build virtualized envs for demos, it is still very difficult to use real infrastructure that matches production env.</p>
+</li>
+</ul>
+<p>Developers can provide a Terraform configuration file to to create, provision, and bootstrap a demo on cloud providers such as Azure, GCP, and AWS.</p>
+<ul>
+<li><strong>Disposable Environments</strong>: It is common to have development, staging or QA and production environments. dev, staging or QA are a clone of production environment, but are used to test new features or applications before releasing in production. It&rsquo;s very difficult to maintain an up-to-date staging environment.</li>
+</ul>
+<p>We can use Terraform to write a configuration file for production and then shared with staging, QA or dev. so we can spin up a new env to test in and the easily removed when you are done testing. Terraform can help to maintain parallel envs.</p>
+<ul>
+<li><strong>Software-Defined Networking</strong>: This is very common and famous in Data Centers. Allows operators and developers have more control on it. Operator operates a Software-defined network easily and developers write applicatios on top of the nertwork infrastructure provided.
+There are two main components here:
+<ul>
+<li>Control layer</li>
+<li>Infrastructure Layer</li>
+</ul>
+</li>
+</ul>
+<p>A configuration file can be written for sofware defined networks. Terraform can use that file to automatically set up and modify settings by interfacing with the control layer. For example, you can use Terraform to configure Azure Virtual Network and AWS VPC.</p>
+<ul>
+<li><strong>Resource Schedulers</strong>: Static assigment of applications to machines is very challenging. In terms of Terraform, there are a number of schedulers such as Borg, Mesos, YARN, and Kubernetes. Terraform can dynamically schedule Docker containers, Hadoop, Spark, and many other software tools.</li>
+</ul>
+<p>Terraform is not limited to cloud providers such as Azure, GCP, and AWS. Resource Schedulers are providers, enabling Terraform to request resources from them. There is a kubernetes provider that can be configured using Terraform.</p>
+<p>Sources:</p>
+<ul>
+<li>
+<p><a href="https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs">https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs</a></p>
+</li>
+<li>
+<p><a href="https://www.terraform.io/intro/use-cases#multi-cloud-deployment">https://www.terraform.io/intro/use-cases#multi-cloud-deployment</a></p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier#:~:text=An%20N%2Dtier%20architecture%20divides,not%20the%20other%20way%20around">https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/n-tier#:~:text=An%20N%2Dtier%20architecture%20divides,not%20the%20other%20way%20around</a>.</p>
+</li>
+</ul>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="/post/the-filesystem-hierarchy-standard/">
+                  <span class="button__text">The Filesystem Hierarchy Standard</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >/home/tuxisma</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2022 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

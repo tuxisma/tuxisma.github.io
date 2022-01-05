@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Hello Friend</title>
+    <title>Posts on Ismael Garcia</title>
     
     
     
     <link>/post/</link>
-    <description>Recent content in Posts on Hello Friend</description>
+    <description>Recent content in Posts on Ismael Garcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Dec 2021 05:52:50 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jan 2022 03:39:05 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Create Blog With HUGO</title>
-      <link>/post/create-blog-with-hugo/</link>
-      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
+      <title>Infrastructure as Code - Terraform</title>
+      <link>/post/infrastructure-as-code/</link>
+      <pubDate>Wed, 05 Jan 2022 03:39:05 +0000</pubDate>
       
-      <guid>/post/create-blog-with-hugo/</guid>
+      <guid>/post/infrastructure-as-code/</guid>
       <description>
         
           
@@ -28,12 +28,8 @@
         
         
         
-          Before create your blog, make sure you have these steps completed:
-  You have Git 2.8 or greater. How To Install Git on Ubuntu 16.04 LTS
-  You have a GitHub account. GitHub
-  You have HUGO installed. Install HUGO on Debian and Ubuntu
-  Create Site or blog to publish. Create a new Site (Add a Theme here, chose wathever you want Hugo Themes)
-  Follow these steps to put your website on GitHub  Now it&amp;rsquo;s time to create a repository on GitHub: &amp;lt;USERNAME&amp;gt;.
+          What is Infrastructure as code Why is so important What is Terraform Features of terraform Use Cases  What is Infrastructure as code Infrastructure as code (IaC) is a way of how you define the resources that you want to deploy as code. IaC helps to build, change, version your infrastructure at low-level (Compute instances, storage, networking) and high-level(DNS entries, SaaS features).
+Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI Service or maybe using the CLI, so what about if the user needs thousand of compute instances ?
           
         
         </description>
@@ -55,6 +51,31 @@
         
           What is a Filesytem Current Linux Structure Directory Things to consider  What is a Filesystem A filesystem is the structure of how data is organized in Linux such as boot files, binaries, user´s data, config files, libraries, temp files, etc. A partition with a filesystem is needed in order to store these kind of files.
 On Linux there may be more than one partitions on disks using different filesystems.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Create Blog With HUGO</title>
+      <link>/post/create-blog-with-hugo/</link>
+      <pubDate>Fri, 11 Jan 2019 17:04:45 -0600</pubDate>
+      
+      <guid>/post/create-blog-with-hugo/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Before create your blog, make sure you have these steps completed:
+  You have Git 2.8 or greater. How To Install Git on Ubuntu 16.04 LTS
+  You have a GitHub account. GitHub
+  You have HUGO installed. Install HUGO on Debian and Ubuntu
+  Create Site or blog to publish. Create a new Site (Add a Theme here, chose wathever you want Hugo Themes)
+  Follow these steps to put your website on GitHub  Now it&amp;rsquo;s time to create a repository on GitHub: &amp;lt;USERNAME&amp;gt;.
           
         
         </description>
