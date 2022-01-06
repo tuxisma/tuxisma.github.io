@@ -12,7 +12,7 @@
 <meta
   name="description"
   content="What is Infrastructure as code Why is so important What is Terraform Features of terraform Use Cases  What is Infrastructure as code Infrastructure as code (IaC) is a way of how you define the resources that you want to deploy as code. IaC helps to build, change, version your infrastructure at low-level (Compute instances, storage, networking) and high-level(DNS entries, SaaS features).
-Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI Service or maybe using the CLI, so what about if the user needs thousand of compute instances ?"
+Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI or maybe using the CLI, so what about if the user needs thousand of compute instances ?"
 />
 <meta
   name="keywords"
@@ -49,13 +49,13 @@ Why is so important The traditional way of provision a compute instance is via T
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Infrastructure as Code - Terraform"/>
 <meta name="twitter:description" content="What is Infrastructure as code Why is so important What is Terraform Features of terraform Use Cases  What is Infrastructure as code Infrastructure as code (IaC) is a way of how you define the resources that you want to deploy as code. IaC helps to build, change, version your infrastructure at low-level (Compute instances, storage, networking) and high-level(DNS entries, SaaS features).
-Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI Service or maybe using the CLI, so what about if the user needs thousand of compute instances ?"/>
+Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI or maybe using the CLI, so what about if the user needs thousand of compute instances ?"/>
 
 
 
 <meta property="og:title" content="Infrastructure as Code - Terraform" />
 <meta property="og:description" content="What is Infrastructure as code Why is so important What is Terraform Features of terraform Use Cases  What is Infrastructure as code Infrastructure as code (IaC) is a way of how you define the resources that you want to deploy as code. IaC helps to build, change, version your infrastructure at low-level (Compute instances, storage, networking) and high-level(DNS entries, SaaS features).
-Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI Service or maybe using the CLI, so what about if the user needs thousand of compute instances ?" />
+Why is so important The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI or maybe using the CLI, so what about if the user needs thousand of compute instances ?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/infrastructure-as-code/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-01-05T03:39:05+00:00" />
@@ -196,16 +196,16 @@ Why is so important The traditional way of provision a compute instance is via T
 <h1 id="what-is-infrastructure-as-code">What is Infrastructure as code</h1>
 <p>Infrastructure as code (IaC) is a way of how you define the resources that you want to deploy as code. IaC helps to <em>build</em>, <em>change</em>, <em>version</em> your infrastructure at low-level (Compute instances, storage, networking) and high-level(DNS entries, SaaS features).</p>
 <h1 id="why-is-so-important">Why is so important</h1>
-<p>The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI Service or maybe using the CLI, so what about if the user needs thousand of compute instances ? , well the task becomes to be tedious , we do not want to waste time provisioning those resources one by one. Here is a different question, what about if we want to scale down at nights to save cost and scale up during a peak day?</p>
+<p>The traditional way of provision a compute instance is via Ticket services such as Service Now, so the user raises a ticket and then the sys admin takes that ticket and provision that compute instance through a GUI or maybe using the CLI, so what about if the user needs thousand of compute instances ? , well the task becomes to be tedious , we do not want to waste time provisioning those resources one by one. Here is a different question, what about if we want to scale down at nights to save cost and scale up during a peak day?</p>
 <p>Since most of the IaC providers are API driven we can automate stuffs such as schedule a script to run every morning and provision thousands of compute instances. We can codify all process, automating and also versioning, we will be able to see who changes what, who my infrastructure is actually defined at any given time and also have a transparency documentation.</p>
-<p>We can conclude then having infrastructure as a code we are ble to:</p>
+<p>We can conclude then having infrastructure as code we are ble to:</p>
 <ul>
 <li>Control Version</li>
 <li>Reusability of the code</li>
 <li>Abilty to automate on top of it</li>
 </ul>
 <h1 id="what-is-terraform">What is Terraform</h1>
-<p>Terraform was introduced in the market by Hashicorp in 2014 as IaC. Terraforn is a cloud-agnostic (AWS, Azure, GCP and others cloud platforms) tool to provision resources using a configuration file written in Hashicorp Language (HCL).</p>
+<p>Terraform was introduced in the market by Hashicorp in 2014 as IaC. Terraform is a cloud-agnostic (AWS, Azure, GCP and others cloud platforms) tool to provision resources using a configuration file written in Hashicorp Language (HCL).</p>
 <p>The workflow of Terraform for all clouds is basically:</p>
 <ul>
 <li>terraform init</li>
@@ -237,28 +237,26 @@ A PAAS for hosting web apps. You can use terraform to provision the setup requir
 <p><strong>Self-Service Clusters</strong>: This is for large organization when exists a centralized operation team and they cannot handle everything because the demand it&rsquo;s pretty obvious, this allow to product teams to handle their own infrastructure using tooling provided by the centralized operation team. A terraform configuration file can be shared across within an organization, so the rest of the product teams can use it.</p>
 </li>
 <li>
-<p><strong>Software Demos</strong>: For testing sofware we can use Vagrant to build virtualized envs for demos, it is still very difficult to use real infrastructure that matches production env.</p>
+<p><strong>Software Demos</strong>: For testing sofware we can use Vagrant to build virtualized envs for demos, it is still very difficult to use real infrastructure that matches production env. Developers can provide a Terraform configuration file to to create, provision, and bootstrap a demo on cloud providers such as Azure, GCP, and AWS.</p>
 </li>
-</ul>
-<p>Developers can provide a Terraform configuration file to to create, provision, and bootstrap a demo on cloud providers such as Azure, GCP, and AWS.</p>
-<ul>
-<li><strong>Disposable Environments</strong>: It is common to have development, staging or QA and production environments. dev, staging or QA are a clone of production environment, but are used to test new features or applications before releasing in production. It&rsquo;s very difficult to maintain an up-to-date staging environment.</li>
-</ul>
+<li>
+<p><strong>Disposable Environments</strong>: It is common to have development, staging or QA and production environments. dev, staging or QA are a clone of production environment, but are used to test new features or applications before releasing in production. It&rsquo;s very difficult to maintain an up-to-date staging environment.</p>
 <p>We can use Terraform to write a configuration file for production and then shared with staging, QA or dev. so we can spin up a new env to test in and the easily removed when you are done testing. Terraform can help to maintain parallel envs.</p>
-<ul>
-<li><strong>Software-Defined Networking</strong>: This is very common and famous in Data Centers. Allows operators and developers have more control on it. Operator operates a Software-defined network easily and developers write applicatios on top of the nertwork infrastructure provided.
-There are two main components here:
+</li>
+<li>
+<p><strong>Software-Defined Networking</strong>: This is very common and famous in Data Centers. Allows operators and developers have more control on it. Operator operates a Software-defined network easily and developers write applicatios on top of the nertwork infrastructure provided.
+There are two main components here:</p>
 <ul>
 <li>Control layer</li>
 <li>Infrastructure Layer</li>
 </ul>
+<p>A configuration file can be written for sofware defined networks. Terraform can use that file to automatically set up and modify settings by interfacing with the control layer. For example, you can use Terraform to configure Azure Virtual Network and AWS VPC.</p>
+</li>
+<li>
+<p><strong>Resource Schedulers</strong>: Static assigment of applications to machines is very challenging. In terms of Terraform, there are a number of schedulers such as Borg, Mesos, YARN, and Kubernetes. Terraform can dynamically schedule Docker containers, Hadoop, Spark, and many other software tools.</p>
+<p>Terraform is not limited to cloud providers such as Azure, GCP, and AWS. Resource Schedulers are providers, enabling Terraform to request resources from them. There is a kubernetes provider that can be configured using Terraform.</p>
 </li>
 </ul>
-<p>A configuration file can be written for sofware defined networks. Terraform can use that file to automatically set up and modify settings by interfacing with the control layer. For example, you can use Terraform to configure Azure Virtual Network and AWS VPC.</p>
-<ul>
-<li><strong>Resource Schedulers</strong>: Static assigment of applications to machines is very challenging. In terms of Terraform, there are a number of schedulers such as Borg, Mesos, YARN, and Kubernetes. Terraform can dynamically schedule Docker containers, Hadoop, Spark, and many other software tools.</li>
-</ul>
-<p>Terraform is not limited to cloud providers such as Azure, GCP, and AWS. Resource Schedulers are providers, enabling Terraform to request resources from them. There is a kubernetes provider that can be configured using Terraform.</p>
 <p>Sources:</p>
 <ul>
 <li>
